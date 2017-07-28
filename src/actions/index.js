@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { mainMovieEndpoint, movieDetailEndpoint } from '../config/endpoints';
+import { mainMovieEndpoint, movieGenreEndpoint } from '../config/endpoints';
 
 export function fetchMainMovie () {
   return function (dispatch) {
@@ -16,5 +16,22 @@ export function fetchMainMovie () {
         type: 'FETCHING_MAIN_MOVIE_FAILURE',
         error: err
       }) )
+  }
+}
+
+export function fetchMovieByGenre (id) {
+  return function (dispatch) {
+    dispatch({type: 'FETCHING_DOCUMENTARIES'})
+    axios.get(movieGenreEndpoint(id))
+      .then(function(result){
+        dispatch({
+          type: 'FETCHING_DOCUMENTARIES_SUCCESS',
+          movies: result.data.results
+        })
+      })
+      .catch((err) => dispatch({
+        type: 'FETCHING_DOCUMENTARIES_FAILURE',
+        error: err
+      }))
   }
 }

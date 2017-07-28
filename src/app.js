@@ -10,8 +10,11 @@ import logger from 'redux-logger';
 
 import routes from './config/routes';
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
+// import {fetchMovieByGenre} from './actions';
+// console.log(store.getState())
+// store.dispatch(fetchMovieByGenre(99));
 render(
   <Provider store={store}>
     {routes}

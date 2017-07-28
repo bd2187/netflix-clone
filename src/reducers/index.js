@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import mainMovieReducer from './mainMovieReducer';
+import documentariesReducer from './genreReducers';
 
 const rootReducer = combineReducers({
-  mainMovie: mainMovieReducer
+  mainMovie: mainMovieReducer,
+  documentaries:  documentariesReducer
 });
 
 export default rootReducer;
