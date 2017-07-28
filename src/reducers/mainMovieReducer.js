@@ -15,7 +15,7 @@ function movieReducer (state = movieState, action) {
         title: action.movie.title,
         overview: action.movie.overview,
         poster: action.movie.poster_path,
-        realeaseDate: action.movie.release_date
+        releaseDate: action.movie.release_date
       }
     default:
       return state
@@ -23,7 +23,7 @@ function movieReducer (state = movieState, action) {
 }
 
 const initialState = {
-  isFetching: false,
+  isFetching: true,
   error: '',
   movie: {}
 }

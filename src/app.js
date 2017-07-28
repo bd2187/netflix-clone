@@ -10,7 +10,7 @@ import logger from 'redux-logger';
 
 import routes from './config/routes';
 
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 render(
   <Provider store={store}>

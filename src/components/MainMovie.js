@@ -1,13 +1,24 @@
 import React from 'react';
-import { Jumbotron } from 'react-bootstrap';
+import { Jumbotron, Button } from 'react-bootstrap';
 
-function MainMovie () {
+function MainMovie (props) {
+  console.log(props);
+  const { overview, poster, releaseDate, title } = props.movie
+
+  if (props.isFetching) return <p>Loading</p>;
+
   return (
-    <Jumbotron style={{height: "252px"}}>
-      <h3>Netflix</h3>
-      <h1>Movie Here</h1>
-      <p>Watch now</p>
-    </Jumbotron>
+    <Jumbotron>
+        <h3>Netflix</h3>
+        <Button>Watch Now</Button>
+
+        <h2>{title}</h2>
+        <p>{releaseDate}</p>
+        <p>{overview}</p>
+        <img src={`http://image.tmdb.org/t/p/w150//${poster}`}
+          alt={`Poster for ${title}`}/>
+
+      </Jumbotron>
   );
 }
 
