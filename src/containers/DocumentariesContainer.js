@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchMovieByGenre } from '../actions';
+import MovieGenre from '../components/MovieGenre';
 
 class DocumentariesContainer extends Component {
   componentDidMount() {
@@ -10,10 +11,20 @@ class DocumentariesContainer extends Component {
   }
   render() {
     return (
-      <div>
-        Documentaries
-      </div>
-    )
+      <MovieGenre
+        genre={"Documentaries"}
+        isFetching = {this.props.isFetching}
+        error = {this.props.error}
+        movies = {this.props.movies}/>
+    );
+  }
+}
+
+function mapStateToProps (state) {
+  return {
+    error: state.documentaries.error,
+    isFetching: state.documentaries.isFetching,
+    movies: state.documentaries.movies
   }
 }
 
@@ -22,6 +33,6 @@ function mapDispatchToProps (dispatch) {
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(DocumentariesContainer);
