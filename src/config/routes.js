@@ -7,7 +7,7 @@ import Header from '../components/Header';
 const routes = (
   <BrowserRouter>
     <div>
-      <Header />
+      <Route to="/" component={Header} />
       <Switch>
         <Route exact path="/" component={Home} />
       </Switch>

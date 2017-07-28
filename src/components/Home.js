@@ -1,12 +1,12 @@
 import React from 'react';
 
 import Header from './Header';
-import MainMovie from './MainMovie';
+import MainMovieContainer from '../containers/MainMovieContainer';
 
 function Home () {
   return (
     <div>
-      <MainMovie />
+      <MainMovieContainer />
     </div>
   )
 }
