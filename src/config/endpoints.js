@@ -7,3 +7,11 @@ export function movieGenreEndpoint (genreID) {
 }
 
 export const trendingMoviesEndpoint = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`;
+
+export function movieDetailsEndpoint (id) {
+  return `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`;
+}
+
+export function trailersEndpoint (id) {
+  return `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`
+}

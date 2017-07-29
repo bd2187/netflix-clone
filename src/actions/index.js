@@ -2,7 +2,9 @@ import axios from 'axios';
 import {
   mainMovieEndpoint,
   movieGenreEndpoint,
-  trendingMoviesEndpoint
+  trendingMoviesEndpoint,
+  movieDetailsEndpoint,
+  trailersEndpoint
 } from '../config/endpoints';
 
 export function fetchMainMovie () {
@@ -157,5 +159,36 @@ export function fetchTrending () {
         type: 'FETCHING_TRENDING_FAILURE',
         error: err
       }))
+  }
+}
+
+export function fetchSingleFilm (id) {
+  return function (dispatch) {
+    dispatch({type: 'FETCHING_SINGLE_FILM'});
+    axios.get(movieDetailsEndpoint(id))
+      .then(function (result) {
+        dispatch({
+          type: 'FETCHING_SINGLE_FILM_SUCCESS',
+          film: result.data,
+        });
+        dispatch(fetchTrailers(id));
+      })
+      .catch( (err) => dispatch({
+        type: 'FETCHING_SINGLE_FILM_FAILURE',
+        error: err
+      }))
+  }
+}
+
+function fetchTrailers(id) {
+  return function (dispatch) {
+    dispatch({type: 'FETCHING_TRAILERS'});
+    axios.get(trailersEndpoint(id))
+      .then(function (result) {
+        dispatch({
+          type: 'FETCHING_TRAILERS_SUCCESS',
+          trailers: [result.data.results[0], result.data.results[1]]
+        })
+      })
   }
 }

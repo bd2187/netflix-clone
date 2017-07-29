@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import './MovieGenre.scss';
 
@@ -22,9 +23,9 @@ class SimpleSlider extends React.Component {
         <Slider {...settings}>
           {this.props.movies.map( (movie) => {
             return (
-              <div key={movie.id} className="img-box">
+              <Link to={`/film/${movie.id}`} key={movie.id} className="img-box">
                 <img src={`http://image.tmdb.org/t/p/w300//${movie.poster_path}`}/>
-              </div>
+              </Link>
             )
           } )}
         </Slider>

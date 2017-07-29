@@ -6,13 +6,17 @@ module.exports = {
   entry: './src/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle_app.js'
+    filename: 'bundle_app.js',
+    publicPath: "/"
   },
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loaders: 'babel-loader' },
       { test: /\.scss$/, loaders: 'style-loader!css-loader!sass-loader' }
     ]
+  },
+  devServer: {
+    historyApiFallback: true
   },
   plugins: [
     new HtmlWebpackPlugin({

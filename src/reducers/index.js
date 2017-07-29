@@ -8,6 +8,7 @@ import romanceReducer from './romanceReducer';
 import scifiReducer from './scifiReducer';
 import thrillerReducer from './thrillerReducer';
 import trendingReducer from './trendingReducer';
+import singleFilmReducer from './singleFilmReducer';
 
 const rootReducer = combineReducers({
   mainMovie: mainMovieReducer,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   romance: romanceReducer,
   scifi: scifiReducer,
   thriller: thrillerReducer,
-  trending: trendingReducer
+  trending: trendingReducer,
+  singleFilm: singleFilmReducer
 });
 
 export default rootReducer;
