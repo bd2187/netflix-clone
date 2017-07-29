@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchMainMovie } from '../actions';
-import MainMovie from '../components/MainMovie';
+import MainMovie from '../components/MainMovie/MainMovie';
 
 
 class MainMovieContainer extends Component {

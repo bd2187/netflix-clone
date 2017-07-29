@@ -1,0 +1,11 @@
+.navbar {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background: rgba(20, 20, 20, .8);
+  .navbar-brand { color: #B9090B; }
+  .navbar-collapse {
+    background: rgba(20, 20, 20, .8);
+    max-height: none;
+  }
+}

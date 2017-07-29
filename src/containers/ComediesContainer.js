@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchComedies } from '../actions';
-import MovieGenre from '../components/MovieGenre';
+import MovieGenre from '../components/MovieGenre/MovieGenre';
 
 class ComediesContainer extends Component {
   componentDidMount() {

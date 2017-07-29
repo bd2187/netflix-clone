@@ -1,4 +1,5 @@
 import React from 'react';
+import './MainMovie.scss';
 
 function MainMovie (props) {
   // console.log(props);
@@ -9,7 +10,8 @@ function MainMovie (props) {
    const imageUrl = `http://image.tmdb.org/t/p/w1000//${poster}`;
 
    var backgroundImg = {
-     background: `url(${imageUrl}) no-repeat center/cover`
+     background: `linear-gradient(0deg, #141414, transparent 100%),
+                  url(${imageUrl}) no-repeat center/cover`
    };
 
   return (

@@ -1,0 +1,32 @@
+.movieGenre {
+  width: 85%;
+  margin: 3em auto 2em;
+  h4 {
+    color: #FFF;
+    margin-bottom: .5em;
+  }
+  h4, .img-box {
+    padding: 0 5px;
+  }
+}
+
+.img-box {
+  height: 100%;
+  img {
+    width: 100%;
+    transition: box-shadow 0.5s, transform 0.5s;
+
+    &:hover {
+      transform: scale(1.4);
+      box-shadow: 0px 3px 300px rgba(0,0,0,20);
+      cursor: pointer;
+    }
+  }
+}
+
+.slick-arrow,
+.slick-prev {
+  &:before {
+    opacity: .1;
+  }
+}

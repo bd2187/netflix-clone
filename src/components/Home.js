@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Header from './Header';
 import MainMovieContainer from '../containers/MainMovieContainer';
 import ComediesContainer from '../containers/ComediesContainer';
 import DocumentariesContainer from '../containers/DocumentariesContainer';

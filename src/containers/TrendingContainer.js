@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchTrending } from '../actions';
-import MovieGenre from '../components/MovieGenre';
+import MovieGenre from '../components/MovieGenre/MovieGenre';
 
 class TrendingContainer extends Component {
   componentDidMount() {
