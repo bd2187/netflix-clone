@@ -1,5 +1,4 @@
 import React from 'react';
-import { Jumbotron, Button } from 'react-bootstrap';
 
 function MainMovie (props) {
   // console.log(props);
@@ -7,18 +6,22 @@ function MainMovie (props) {
 
   if (props.isFetching) return <p>Loading</p>;
 
+   const imageUrl = `http://image.tmdb.org/t/p/w1000//${poster}`;
+
+   var backgroundImg = {
+     background: `url(${imageUrl}) no-repeat center/cover`
+   };
+
   return (
-    <Jumbotron>
+    <div className="mainMovie"
+          style={backgroundImg}>
         <h3>Netflix</h3>
-        <Button>Watch Now</Button>
-
-        <h2>{title}</h2>
-        <p>{releaseDate}</p>
-        <p>{overview}</p>
-        <img src={`http://image.tmdb.org/t/p/w600//${poster}`}
-          alt={`Poster for ${title}`}/>
-
-      </Jumbotron>
+          <div className="mainMovieInfo">
+            <h2>{title}</h2>
+            <p>{overview}</p>
+          </div>
+        <button>Watch Now</button>
+      </div>
   );
 }
 

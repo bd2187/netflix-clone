@@ -14,7 +14,7 @@ function movieReducer (state = movieState, action) {
         id: action.movie.id,
         title: action.movie.title,
         overview: action.movie.overview,
-        poster: action.movie.poster_path,
+        poster: action.movie.backdrop_path,
         releaseDate: action.movie.release_date
       }
     default:

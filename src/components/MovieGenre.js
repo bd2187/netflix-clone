@@ -22,7 +22,7 @@ class SimpleSlider extends React.Component {
           {this.props.movies.map( (movie) => {
             return (
               <div key={movie.id} className="img-box">
-                <img src={`http://image.tmdb.org/t/p/w150//${movie.poster_path}`}/>
+                <img src={`http://image.tmdb.org/t/p/w300//${movie.poster_path}`}/>
               </div>
             )
           } )}

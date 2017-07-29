@@ -3,7 +3,7 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
 function Header () {
   return (
-    <Navbar inverse collapseOnSelect>
+    <Navbar inverse collapseOnSelect fixedTop>
       <Navbar.Header>
         <Navbar.Brand>
           <a href="#">Netflix</a>
