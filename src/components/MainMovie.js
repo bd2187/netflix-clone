@@ -15,7 +15,7 @@ function MainMovie (props) {
         <h2>{title}</h2>
         <p>{releaseDate}</p>
         <p>{overview}</p>
-        <img src={`http://image.tmdb.org/t/p/w150//${poster}`}
+        <img src={`http://image.tmdb.org/t/p/w600//${poster}`}
           alt={`Poster for ${title}`}/>
 
       </Jumbotron>

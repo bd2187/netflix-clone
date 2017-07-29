@@ -1,5 +1,9 @@
 import axios from 'axios';
-import { mainMovieEndpoint, movieGenreEndpoint } from '../config/endpoints';
+import {
+  mainMovieEndpoint,
+  movieGenreEndpoint,
+  trendingMoviesEndpoint
+} from '../config/endpoints';
 
 export function fetchMainMovie () {
   return function (dispatch) {
@@ -23,7 +27,7 @@ export function fetchMovieByGenre (id) {
   return function (dispatch) {
     dispatch({type: 'FETCHING_DOCUMENTARIES'})
     axios.get(movieGenreEndpoint(id))
-      .then(function(result){
+      .then(function (result) {
         dispatch({
           type: 'FETCHING_DOCUMENTARIES_SUCCESS',
           movies: result.data.results
@@ -31,6 +35,126 @@ export function fetchMovieByGenre (id) {
       })
       .catch((err) => dispatch({
         type: 'FETCHING_DOCUMENTARIES_FAILURE',
+        error: err
+      }))
+  }
+}
+
+
+export function fetchComedies (id) {
+  return function (dispatch) {
+    dispatch({type: 'FETCHING_COMEDIES'})
+    axios.get(movieGenreEndpoint(id))
+      .then(function (result) {
+        dispatch({
+          type: 'FETCHING_COMEDIES_SUCCESS',
+          movies: result.data.results
+        })
+      })
+      .catch((err) => dispatch({
+        type: 'FETCHING_COMEDIES_FAILURE',
+        error: err
+      }))
+  }
+}
+
+export function fetchDramas (id) {
+  return function (dispatch) {
+    dispatch({type: 'FETCHING_DRAMAS'})
+    axios.get(movieGenreEndpoint(id))
+      .then(function (result) {
+        dispatch({
+          type: 'FETCHING_DRAMAS_SUCCESS',
+          movies: result.data.results
+        })
+      })
+      .catch((err) => dispatch({
+        type: 'FETCHING_DRAMAS_FAILURE',
+        error: err
+      }))
+  }
+}
+
+export function fetchHorror (id) {
+  return function (dispatch) {
+    dispatch({type: 'FETCHING_HORROR'})
+    axios.get(movieGenreEndpoint(id))
+      .then(function (result) {
+        dispatch({
+          type: 'FETCHING_HORROR_SUCCESS',
+          movies: result.data.results
+        })
+      })
+      .catch((err) => dispatch({
+        type: 'FETCHING_HORROR_FAILURE',
+        error: err
+      }))
+  }
+}
+
+export function fetchRomance (id) {
+  return function (dispatch) {
+    dispatch({type: 'FETCHING_ROMANCE'})
+    axios.get(movieGenreEndpoint(id))
+      .then(function (result) {
+        dispatch({
+          type: 'FETCHING_ROMANCE_SUCCESS',
+          movies: result.data.results
+        })
+      })
+      .catch((err) => dispatch({
+        type: 'FETCHING_ROMANCE_FAILURE',
+        error: err
+      }))
+  }
+}
+
+export function fetchScifi (id) {
+  return function (dispatch) {
+    dispatch({type: 'FETCHING_SCIFI'})
+    axios.get(movieGenreEndpoint(id))
+      .then(function (result) {
+        dispatch({
+          type: 'FETCHING_SCIFI_SUCCESS',
+          movies: result.data.results
+        })
+      })
+      .catch((err) => dispatch({
+        type: 'FETCHING_SCIFI_FAILURE',
+        error: err
+      }))
+  }
+}
+
+export function fetchThriller (id) {
+  return function (dispatch) {
+    dispatch({type: 'FETCHING_THRILLER'})
+    axios.get(movieGenreEndpoint(id))
+      .then(function (result) {
+        dispatch({
+          type: 'FETCHING_THRILLER_SUCCESS',
+          movies: result.data.results
+        })
+      })
+      .catch((err) => dispatch({
+        type: 'FETCHING_THRILLER_FAILURE',
+        error: err
+      }))
+  }
+}
+
+export function fetchTrending () {
+  return function (dispatch) {
+    dispatch({type: 'FETCHING_TRENDING'})
+    axios.get(trendingMoviesEndpoint)
+      .then(function (result) {
+        dispatch({
+          type: 'FETCHING_TRENDING_SUCCESS',
+          movies: result.data.results
+        })
+      })
+      .catch((err) => dispatch({
+        type: 'FETCHING_TRENDING_FAILURE',
         error: err
       }))
   }

@@ -1,10 +1,24 @@
 import { combineReducers } from 'redux';
 import mainMovieReducer from './mainMovieReducer';
-import documentariesReducer from './genreReducers';
+import documentariesReducer from './documentaryReducer';
+import comediesReducer from './comediesReducer';
+import dramasReducer from './dramasReducer';
+import horrorReducer from './horrorReducer';
+import romanceReducer from './romanceReducer';
+import scifiReducer from './scifiReducer';
+import thrillerReducer from './thrillerReducer';
+import trendingReducer from './trendingReducer';
 
 const rootReducer = combineReducers({
   mainMovie: mainMovieReducer,
-  documentaries:  documentariesReducer
+  comedies: comediesReducer,
+  documentaries: documentariesReducer,
+  dramas: dramasReducer,
+  horror: horrorReducer,
+  romance: romanceReducer,
+  scifi: scifiReducer,
+  thriller: thrillerReducer,
+  trending: trendingReducer
 });
 
 export default rootReducer;
