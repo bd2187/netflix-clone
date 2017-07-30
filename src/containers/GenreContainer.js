@@ -11,6 +11,8 @@ class GenreContainer extends Component {
         return this.props.fetchTrending();
       case 'Comedies':
         return this.props.fetchComedies();
+      case 'Documentaries':
+        return this.props.fetchDocumentaries();
       case 'Dramas':
         return this.props.fetchDramas();
       case 'Horror':
@@ -20,7 +22,7 @@ class GenreContainer extends Component {
       case 'Sci-Fi':
         return this.props.fetchScifi();
       case 'Thrillers':
-        return this.props.fetchThriller()
+        return this.props.fetchThriller();
       default:
         return null
     }
@@ -36,6 +38,9 @@ class GenreContainer extends Component {
       case 'Comedies':
         movies = this.props.comedies;
         break;
+      case 'Documentaries':
+        movies = this.props.documentaries;
+        break;
       case 'Dramas':
         movies = this.props.dramas;
         break;
@@ -49,10 +54,14 @@ class GenreContainer extends Component {
         movies = this.props.scifi;
         break;
       case 'Thrillers':
-        movies = this.props.thrillers;
+        movies = this.props.thriller;
         break;
       default:
-        movies = null;
+        movies = {
+          isFetching: false,
+          error: '',
+          movies: []
+        };
     }
     return (
       <Genre movies={movies} genre={genre}/>
@@ -65,6 +74,7 @@ function mapStateToProps (state) {
   return {
     trending: state.trending,
     comedies: state.comedies,
+    documentaries: state.documentaries,
     dramas: state.dramas,
     horror: state.horror,
     romance: state.romance,

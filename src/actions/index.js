@@ -25,10 +25,10 @@ export function fetchMainMovie () {
   }
 }
 
-export function fetchMovieByGenre (id) {
+export function fetchDocumentaries () {
   return function (dispatch) {
     dispatch({type: 'FETCHING_DOCUMENTARIES'})
-    axios.get(movieGenreEndpoint(id))
+    axios.get(movieGenreEndpoint(99))
       .then(function (result) {
         dispatch({
           type: 'FETCHING_DOCUMENTARIES_SUCCESS',

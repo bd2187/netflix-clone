@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchMovieByGenre } from '../actions';
+import { fetchDocumentaries } from '../actions';
 import MovieGenre from '../components/MovieGenre/MovieGenre';
 
 class DocumentariesContainer extends Component {
   componentDidMount() {
-    this.props.fetchMovieByGenre(99);
+    this.props.fetchDocumentaries();
   }
   render() {
     return (
@@ -29,7 +29,7 @@ function mapStateToProps (state) {
 }
 
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators({fetchMovieByGenre}, dispatch);
+  return bindActionCreators({fetchDocumentaries}, dispatch);
 }
 
 export default connect(
