@@ -7,7 +7,7 @@ function Header () {
     <Navbar inverse collapseOnSelect fixedTop>
       <Navbar.Header>
         <Navbar.Brand>
-          <a href="#">Netflix</a>
+          <a href="/">Netflix</a>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>

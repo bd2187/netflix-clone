@@ -8,13 +8,21 @@ import SingleFilm from '../components/SingleFilm/SingleFilm';
 class SingleFilmContainer extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
-    console.log( this.props.fetchSingleFilm(id) );
-    // console.log( this.props.fetchTrailers(id) );
+    this.props.fetchSingleFilm(id);
   }
   render() {
     return (
-      <SingleFilm />
+      <SingleFilm {...this.props}/>
     );
+  }
+}
+
+function mapStateToProps (state) {
+  return {
+    film: state.singleFilm.film,
+    error: state.singleFilm.error,
+    isFetching: state.singleFilm.isFetching,
+    trailers: state.singleFilm.trailers
   }
 }
 
@@ -22,4 +30,7 @@ function mapDispatchToProps (dispatch) {
   return bindActionCreators({fetchSingleFilm}, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(SingleFilmContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SingleFilmContainer);

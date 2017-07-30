@@ -1,0 +1,49 @@
+.singleFilm {
+  // background: orange;
+  color: #FFF;
+  margin-top: 2em;
+  width: 90%;
+  margin: 2em auto;
+
+  .imgSpread {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  h1, p {
+    margin: 1em 0;
+  }
+
+  h1 {
+    font-size: 3em;
+    text-align: center;
+  }
+
+  .description {
+    font-size: 1em;
+  }
+
+  button {
+    width: 100%;
+    background: red;
+    border: none;
+    padding: .5em 0;
+    .fa-play {
+      margin: 0 5px;
+    }
+  }
+}
+
+.trailersDisplay {
+  // background: green;
+}
+iframe {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 423px;
+  margin: 1em auto;
+  // height: 56.25vh;
+  border: none;
+}
