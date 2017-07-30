@@ -9,6 +9,7 @@ import scifiReducer from './scifiReducer';
 import thrillerReducer from './thrillerReducer';
 import trendingReducer from './trendingReducer';
 import singleFilmReducer from './singleFilmReducer';
+import searchReducer from './searchReducer';
 
 const rootReducer = combineReducers({
   mainMovie: mainMovieReducer,
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   scifi: scifiReducer,
   thriller: thrillerReducer,
   trending: trendingReducer,
-  singleFilm: singleFilmReducer
+  singleFilm: singleFilmReducer,
+  search: searchReducer
 });
 
 export default rootReducer;

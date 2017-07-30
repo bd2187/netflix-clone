@@ -4,7 +4,8 @@ import {
   movieGenreEndpoint,
   trendingMoviesEndpoint,
   movieDetailsEndpoint,
-  trailersEndpoint
+  trailersEndpoint,
+  searchEndpoint
 } from '../config/endpoints';
 
 export function fetchMainMovie () {
@@ -190,5 +191,16 @@ function fetchTrailers(id) {
           trailers: [result.data.results[0], result.data.results[1]]
         })
       })
+  }
+}
+
+export function searchFilm(query) {
+  return function (dispatch) {
+    dispatch({type: 'FETCHING_SEARCH'});
+    axios.get(searchEndpoint(query))
+      .then(function (results) {
+        console.log(results);
+      }
+    )
   }
 }
