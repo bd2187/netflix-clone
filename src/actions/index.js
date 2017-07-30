@@ -191,6 +191,7 @@ function fetchTrailers(id) {
           trailers: [result.data.results[0], result.data.results[1]]
         })
       })
+      // add error handling
   }
 }
 
@@ -199,8 +200,16 @@ export function searchFilm(query) {
     dispatch({type: 'FETCHING_SEARCH'});
     axios.get(searchEndpoint(query))
       .then(function (results) {
-        console.log(results);
+        dispatch({
+          type: 'FETCHING_SEARCH_SUCCESS',
+          movies: results.data.results
+        })
+        // console.log(results.data.results);
       }
     )
+    .catch( (err) => dispatch({
+      type: 'FETCHING_SEARCH_FAILURE',
+      error: err
+    }) )
   }
 }
