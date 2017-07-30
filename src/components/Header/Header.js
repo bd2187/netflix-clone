@@ -1,7 +1,16 @@
 import React from 'react';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import {
+  Navbar,
+  Nav,
+  NavItem,
+  NavDropdown,
+  MenuItem,
+  FormGroup,
+  FormControl
+} from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import './Header.scss';
+import logo from '../../../public/img/netflix.svg';
 
 function Header () {
   const netflixRed = "#B9090B";
@@ -9,7 +18,9 @@ function Header () {
     <Navbar inverse collapseOnSelect fixedTop>
       <Navbar.Header>
         <Navbar.Brand>
-          <Link to="/">Netflix</Link>
+          <Link to="/">
+            <img className="logo" src={logo} />
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
@@ -17,6 +28,9 @@ function Header () {
 
 
       <Navbar.Collapse>
+        <FormGroup>
+          <FormControl type="text" placeholder="Search" />
+        </FormGroup>
         <ul>
           <li>
             <NavLink exact to="/" activeStyle={{color: netflixRed}}>
@@ -53,24 +67,3 @@ function Header () {
 }
 
 export default Header;
-
-
-
-// <Navbar.Collapse>
-//   <Nav>
-//     <NavItem eventKey={1} href="/">
-//       <Link to="/">Home</Link>
-//     </NavItem>
-//     <NavItem eventKey={2} href="#">
-//       <Link to="/genre/Comedies">Comedies</Link>
-//     </NavItem>
-//     <NavItem eventKey={2} href="#">Documentaries</NavItem>
-//     <NavItem eventKey={2} href="#">Dramas</NavItem>
-//     <NavItem eventKey={2} href="#">Horror Movies</NavItem>
-//     <NavItem eventKey={2} href="#">Romantic Movies</NavItem>
-//     <NavItem eventKey={2} href="#">Sci-Fi & Fantasy</NavItem>
-//     <NavItem eventKey={2} href="#">Thrillers</NavItem>
-//   </Nav>
-//   <Nav pullRight>
-//   </Nav>
-// </Navbar.Collapse>
