@@ -56,9 +56,9 @@ class Header extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(e) {
+    this.props.history.replace(`/search/q=${e.target.value}`);
+    this.props.search(e.target.value);
     this.setState({value: e.target.value});
-    this.props.search(this.state.value)
-    // change url path
   }
   render () {
     return (

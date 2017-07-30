@@ -6,11 +6,10 @@ import Header from '../components/Header/Header';
 
 function HeaderContainer (props) {
   const search = props.search;
-  return <Header search={search}/>
+  return <Header search={search} history={props.history} match={props.match}/>
 }
 
 function mapDispatchToProps (dispatch) {
-  // return bindActionCreators({searchFilm}, dispatch);
   return {
     search: (query) => dispatch(searchFilm(query))
   }

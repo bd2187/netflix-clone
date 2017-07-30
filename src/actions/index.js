@@ -197,18 +197,19 @@ function fetchTrailers(id) {
 
 export function searchFilm(query) {
   return function (dispatch) {
-    dispatch({type: 'FETCHING_SEARCH'});
+    dispatch({type: 'FETCHING_SEARCH', query});
     axios.get(searchEndpoint(query))
       .then(function (results) {
         dispatch({
           type: 'FETCHING_SEARCH_SUCCESS',
+          query,
           movies: results.data.results
-        })
-        // console.log(results.data.results);
+        });
       }
     )
     .catch( (err) => dispatch({
       type: 'FETCHING_SEARCH_FAILURE',
+      query,
       error: err
     }) )
   }

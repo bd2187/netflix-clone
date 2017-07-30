@@ -1,7 +1,8 @@
 const initialState = {
   isFetching: false,
   error: '',
-  movies: []
+  movies: [],
+  query: ''
 }
 
 function searchReducer (state = initialState, action) {
@@ -9,20 +10,23 @@ function searchReducer (state = initialState, action) {
     case 'FETCHING_SEARCH':
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
+        query: action.query
       }
     case 'FETCHING_SEARCH_SUCCESS':
       return {
         ...state,
         isFetching: false,
         error: '',
-        movies: action.movies
+        movies: action.movies,
+        query: action.query
       }
     case 'FETCHING_SEARCH_FAILURE':
       return {
         ...state,
         isFetching: false,
-        error: action.error
+        error: action.error,
+        query: action.query
       }
     default:
       return state;

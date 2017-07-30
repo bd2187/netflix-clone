@@ -5,6 +5,7 @@ import Home from '../components/Home';
 import HeaderContainer from '../containers/HeaderContainer';
 import SingleFilmContainer from '../containers/SingleFilmContainer';
 import GenreContainer from '../containers/GenreContainer';
+import SearchContainer from '../containers/SearchContainer';
 
 const routes = (
   <BrowserRouter>
@@ -14,6 +15,7 @@ const routes = (
         <Route exact path="/" component={Home} />
         <Route path="/film/:id" component={SingleFilmContainer} />
         <Route path="/genre/:genre" component={GenreContainer}/>
+        <Route path="/search/q=:search" component={SearchContainer}/>
       </Switch>
     </div>
   </BrowserRouter>
