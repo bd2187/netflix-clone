@@ -1,18 +1,8 @@
 import React from 'react';
+import FilmsDisplay from '../FilmsDisplay/FilmsDisplay';
 
-function Search ({isFetching, error, query, movies}) {
-  return (
-    <div>
-      <h1>Search</h1>
-      <ul>
-        {movies.map(function(movie){
-          return (
-            <li key={movie.id}>{movie.title}</li>
-          )
-        })}
-      </ul>
-    </div>
-  )
+function Search ({movies}) {
+  return <FilmsDisplay movies={movies} genreOrQuery={movies.query} />
 }
 
 export default Search;

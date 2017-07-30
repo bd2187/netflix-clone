@@ -10,23 +10,17 @@ class SearchContainer extends Component {
     this.props.search(query);
   }
   render() {
-    const { isFetching, error, query, movies } = this.props;
+    // const { isFetching, error, query, movies } = this.props;
+    // console.log(this.props)
     return (
-      <Search
-        isFetching={isFetching}
-        error={error}
-        query={query}
-        movies={movies}/>
+      <Search movies={this.props.movies}/>
     )
   }
 }
 
 function mapStateToProps (state) {
   return {
-    isFetching: state.search.isFetching,
-    error: state.search.error,
-    query: state.search.query,
-    movies: state.search.movies
+    movies: state.search
   }
 }
 
