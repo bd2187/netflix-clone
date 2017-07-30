@@ -7,7 +7,7 @@ import MovieGenre from '../components/MovieGenre/MovieGenre';
 
 class HorrorContainer extends Component {
   componentDidMount() {
-    this.props.fetchHorror(27);
+    this.props.fetchHorror();
   }
   render() {
     return (

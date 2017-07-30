@@ -7,7 +7,7 @@ import MovieGenre from '../components/MovieGenre/MovieGenre';
 
 class ThrillerContainer extends Component {
   componentDidMount() {
-    this.props.fetchThriller(53);
+    this.props.fetchThriller();
   }
   render() {
     return (

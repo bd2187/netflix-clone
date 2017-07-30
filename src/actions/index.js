@@ -43,10 +43,10 @@ export function fetchMovieByGenre (id) {
 }
 
 
-export function fetchComedies (id) {
+export function fetchComedies () {
   return function (dispatch) {
     dispatch({type: 'FETCHING_COMEDIES'})
-    axios.get(movieGenreEndpoint(id))
+    axios.get(movieGenreEndpoint(35))
       .then(function (result) {
         dispatch({
           type: 'FETCHING_COMEDIES_SUCCESS',
@@ -60,10 +60,10 @@ export function fetchComedies (id) {
   }
 }
 
-export function fetchDramas (id) {
+export function fetchDramas () {
   return function (dispatch) {
     dispatch({type: 'FETCHING_DRAMAS'})
-    axios.get(movieGenreEndpoint(id))
+    axios.get(movieGenreEndpoint(18))
       .then(function (result) {
         dispatch({
           type: 'FETCHING_DRAMAS_SUCCESS',
@@ -77,10 +77,10 @@ export function fetchDramas (id) {
   }
 }
 
-export function fetchHorror (id) {
+export function fetchHorror () {
   return function (dispatch) {
     dispatch({type: 'FETCHING_HORROR'})
-    axios.get(movieGenreEndpoint(id))
+    axios.get(movieGenreEndpoint(27))
       .then(function (result) {
         dispatch({
           type: 'FETCHING_HORROR_SUCCESS',
@@ -94,10 +94,10 @@ export function fetchHorror (id) {
   }
 }
 
-export function fetchRomance (id) {
+export function fetchRomance () {
   return function (dispatch) {
     dispatch({type: 'FETCHING_ROMANCE'})
-    axios.get(movieGenreEndpoint(id))
+    axios.get(movieGenreEndpoint(10749))
       .then(function (result) {
         dispatch({
           type: 'FETCHING_ROMANCE_SUCCESS',
@@ -111,10 +111,10 @@ export function fetchRomance (id) {
   }
 }
 
-export function fetchScifi (id) {
+export function fetchScifi () {
   return function (dispatch) {
     dispatch({type: 'FETCHING_SCIFI'})
-    axios.get(movieGenreEndpoint(id))
+    axios.get(movieGenreEndpoint(878))
       .then(function (result) {
         dispatch({
           type: 'FETCHING_SCIFI_SUCCESS',
@@ -128,10 +128,10 @@ export function fetchScifi (id) {
   }
 }
 
-export function fetchThriller (id) {
+export function fetchThriller () {
   return function (dispatch) {
     dispatch({type: 'FETCHING_THRILLER'})
-    axios.get(movieGenreEndpoint(id))
+    axios.get(movieGenreEndpoint(53))
       .then(function (result) {
         dispatch({
           type: 'FETCHING_THRILLER_SUCCESS',

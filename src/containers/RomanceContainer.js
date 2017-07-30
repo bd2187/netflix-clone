@@ -7,7 +7,7 @@ import MovieGenre from '../components/MovieGenre/MovieGenre';
 
 class RomanceContainer extends Component {
   componentDidMount() {
-    this.props.fetchRomance(10749);
+    this.props.fetchRomance();
   }
   render() {
     return (

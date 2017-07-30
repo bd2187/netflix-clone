@@ -7,7 +7,7 @@ import MovieGenre from '../components/MovieGenre/MovieGenre';
 
 class ComediesContainer extends Component {
   componentDidMount() {
-    this.props.fetchComedies(35);
+    this.props.fetchComedies();
   }
   render() {
     return (

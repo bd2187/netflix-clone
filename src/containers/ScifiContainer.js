@@ -7,7 +7,7 @@ import MovieGenre from '../components/MovieGenre/MovieGenre';
 
 class ScifiContainer extends Component {
   componentDidMount() {
-    this.props.fetchScifi(878);
+    this.props.fetchScifi();
   }
   render() {
     return (
