@@ -13,15 +13,18 @@ function MainMovie (props) {
    };
 
   return (
-    <div className="mainMovie" style={poster ? backgroundImg : null}>
+    <div className="mainMovie contain" style={poster ? backgroundImg : null}>
         {props.isFetching
           ? <div className="spinner"></div>
-          : <div>
+          : <div className="contentBox">
               <div className="mainMovieInfo">
-                <h2>{title}</h2>
+                <h1>{title}</h1>
                 <p>{overview}</p>
               </div>
-              <button>Watch Now</button>
+              <button>
+                <i className="fa fa-play" aria-hidden="true"></i>
+                Play
+              </button>
             </div>
         }
       </div>

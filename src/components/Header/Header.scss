@@ -1,19 +1,14 @@
-// @import "mixins";
+@import "../../../public/style/variables.scss";
+@import "../../../public/style/mixins.scss";
 
-.logo {
-  width: 75px;
-}
+.logo { width: 75px; }
 
-.form-group {
-  margin: 1em 0;
-}
+.form-group { margin: 1em 0; }
 
-.navbar,
-.dropdown-menu {
-  background: rgba(20, 20, 20, .8);
-}
+.dropdown-menu { background: rgba(20, 20, 20, .8); }
 
 .navbar {
+  @extend .dropdown-menu;
   margin: 0;
   border: none;
   border-radius: 0;
@@ -30,14 +25,12 @@
 
 .navbar-collapse {
   ul {
-    // background: green;
     list-style: none;
     padding: 0;
     margin: 0;
   }
   a {
     display: block;
-    // background: pink;
     padding: .7em 0;
     margin-bottom: .4em;
     font-size: 1em;
@@ -47,22 +40,16 @@
 }
 
 
-// ======
-
-@mixin mediaQuery($breakpoint) {
-  @media screen and (min-width: $breakpoint) {
-    @content
-  }
-}
+// ====== media queries
 
 .mobileNavbar {
-  @include mediaQuery(730px) {
-    display: none;
-  }
+  @include mediaQuery($firstBreakPoint) { display: none; }
 }
 
 .desktopNavbar {
   display: none;
+  @include mediaQuery($firstBreakPoint) { display: block; }
+
   .logo { width: 100px; }
   ul {
     a {
@@ -70,5 +57,4 @@
       &:hover { text-decoration: underline;}
     }
   }
-  @include mediaQuery(730px) { display: block; }
 }

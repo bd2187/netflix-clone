@@ -24,17 +24,23 @@ function Movie (movie) {
 }
 
 function FilmsDisplay ({ movies, genreOrQuery }) {
+  if (movies.isFetching) {
+    return <div className="spinner"></div>
+  }
 
   if (!movies.movies[0]) {
     return <h3>Sorry. No results for {genreOrQuery}</h3>
   }
 
   return (
-    <div className="genre">
+    <div className="genre contain">
       <h1>{genreOrQuery.toUpperCase()}</h1>
-      {movies.movies.map(function(movie){
-        return <Movie key={movie.id} movie={movie}/>
-      })}
+      <div className="movieCollection">
+        {movies.movies.map(function(movie){
+          if (!movie.backdrop_path) return null;
+          return <Movie key={movie.id} movie={movie}/>
+        })}
+      </div>
     </div>
   )
 }

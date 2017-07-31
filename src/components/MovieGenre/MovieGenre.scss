@@ -1,13 +1,18 @@
+@import "../../../public/style/variables.scss";
+@import "../../../public/style/mixins.scss";
+
 .movieGenre {
+  // background: orange;
   position: relative;
   min-height: 132.53px;
-  width: 85%;
   margin: 3em auto 2em;
   h4 {
     color: #FFF;
+    font-size: 1.3em;
     margin-bottom: .5em;
     display: inline-block;
-    &:hover { color: #B9090B; }
+    @include mediaQuery($firstBreakPoint) { font-size: 2em; }
+    &:hover { color: $netflixRed; }
   }
   h4, .img-box {
     padding: 0 5px;

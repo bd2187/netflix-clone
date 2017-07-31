@@ -1,4 +1,5 @@
 @import "mixins";
+@import "variables";
 
 * {
   box-sizing: border-box;
@@ -20,6 +21,17 @@ h1, h2, h3, h4, p {
   margin: 0;
 }
 
+.contain {
+  // background: yellow;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.contentBox {
+  width: 85%;
+  margin: 0 auto;
+}
+
 
 @keyframes spinner {
   to {transform: rotate(360deg);}
@@ -37,7 +49,7 @@ h1, h2, h3, h4, p {
   margin-left: -10px;
   border-radius: 50%;
   border: 2px solid transparent;
-  border-top-color: #B9090B;
+  border-top-color: $netflixRed;
   border-bottom-color: #B9090B;
   animation: spinner 1.5s ease infinite;
 }

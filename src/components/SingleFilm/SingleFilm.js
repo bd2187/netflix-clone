@@ -49,26 +49,33 @@ function convertDate(date) {
   return `${month} ${day}, ${dateArr[0]}`;
 }
 
-function SingleFilm ({isFetching, error, film, trailers}) {
+function SingleFilm ({isFetching, error, film, trailers, history}) {
+  // console.log(history.goBack())
   return (
-    <div className="singleFilm">
+    <div className="singleFilm contain">
       {isFetching
         ? <div className="spinner"></div>
         : <div>
-            {film.backdrop_path &&
+            <div className="mainContent">
               <img
                 className="imgSpread" src={`http://image.tmdb.org/t/p/w1000//${film.backdrop_path}`}
                 alt={`Poster for ${film.title}`}/>
-            }
-            <h1>{film.title}</h1>
-            <button>
-              <i className="fa fa-play" aria-hidden="true"></i>
-              Play
-            </button>
-            <p className="description">{film.overview}</p>
-            <p>{`${film.runtime} min.`}</p>
-            <p>Release Date: {convertDate(film.release_date)}</p>
+              <div className="movieInfo">
+                <h1>{film.title}</h1>
+                <button id="play">
+                  <i className="fa fa-play" aria-hidden="true"></i>
+                  Play
+                </button>
+                <p className="description">{film.overview}</p>
+                <p>{`${film.runtime} min.`}</p>
+                <p>Release Date: {convertDate(film.release_date)}</p>
+              </div>
+            </div>
             <TrailersDisplay trailers={trailers}/>
+            <button id="backBtn" onClick={history.goBack}>
+              <i className="fa fa-angle-double-left" aria-hidden="true"></i>
+              Go back
+            </button>
           </div>
       }
     </div>

@@ -1,8 +1,23 @@
+@import "../../../public/style/variables.scss";
+@import "../../../public/style/mixins.scss";
+
+.movieCollection {
+  @include mediaQuery($firstBreakPoint) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+}
 
 .imgContainer {
   position: relative;
-  // background: green;
   transition: opacity .5s ease;
+  a { display: inline-block;   margin: 0 auto;}
+
+  @include mediaQuery($firstBreakPoint) { margin: 1em; }
+
   &:hover img {
     opacity: 0.6;
     transform: scale(1.2);
@@ -17,11 +32,9 @@
 }
 
 .genre {
-  // background: orange;
   img {
     display: block;
     margin: 1em auto;
-    background: #B9090B;
     text-align: center;
 
     opacity: 1;

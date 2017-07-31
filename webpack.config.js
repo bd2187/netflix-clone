@@ -12,7 +12,7 @@ module.exports = {
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loaders: 'babel-loader' },
-      { test: /\.scss$/, loaders: 'style-loader!css-loader!sass-loader' },
+      { test: /\.scss$/, loaders: 'style-loader!css-loader!sass-loader?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]' },
       { test: /\.(svg|jpg)$/, loader: 'url-loader?limit=8192' }
     ]
   },

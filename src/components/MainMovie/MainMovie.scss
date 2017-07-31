@@ -1,34 +1,32 @@
+@import "../../../public/style/variables.scss";
+@import "../../../public/style/mixins.scss";
+
 .mainMovie {
   position: relative;
   height: 31.25em; /*500px / 16px = 31.25em */
-  padding: 3em;
-  // box-shadow: 0 0 -500px rgba(0,0,0,20) inset;
-
-  h3 { color: #B9090B; }
-
+  padding: 3em 0;
   .mainMovieInfo{
-    // background: orange;
     color: #fff;
     width: 50%;
     max-width: 400px;
     margin: 3em 0;
-    h2 { font-size: 2em; }
-    p { font-size: 1em; }
-  }
-  button {
-    padding: .5em 1em;
-    background: #B9090B;
-    color: #FFF;
-    border: none;
-    &:hover {
-      background: lighten(#B9090B, 5%);
+    h1, p {
+      text-align: left;
+      margin: .32em 0;
+    }
+    h1 {
+      font-size: 2em;
+      @include mediaQuery ($firstBreakPoint) { font-size: 4em; }
+    }
+    p {
+      font-size: 1em;
+      max-width: 400px;
+      @include mediaQuery ($firstBreakPoint) { font-size: 1.2em; }
     }
   }
-}
-
-.mainMovieBox {
-  // padding: 1em;
-  display: flex;
-  align-items: center;
-  box-shadow: inset 0px 0px 50px rgba(0,0,0,0.9);
+  button {
+    @include playButton;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 }

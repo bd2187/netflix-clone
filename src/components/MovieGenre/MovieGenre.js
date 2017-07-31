@@ -22,6 +22,7 @@ class SimpleSlider extends React.Component {
       <div className="slider">
         <Slider {...settings}>
           {this.props.movies.map( (movie) => {
+            if (!movie.backdrop_path) return null;
             return (
               <Link to={`/film/${movie.id}`} key={movie.id} className="img-box">
                 {movie.poster_path
@@ -40,10 +41,10 @@ class SimpleSlider extends React.Component {
 
 function MovieGenre (props) {
   return (
-    <div className="movieGenre">
+    <div className="movieGenre contain">
       {props.isFetching
         ? <div className="spinner"></div>
-        : <div>
+        : <div className="contentBox">
             <Link to={`/genre/${props.genre}`}>
               <h4>{props.genre}</h4>
             </Link>

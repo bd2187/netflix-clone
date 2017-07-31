@@ -1,5 +1,21 @@
+@import "variables";
+
 @mixin mediaQuery($breakpoint) {
   @media screen and (min-width: $breakpoint) {
     @content
+  }
+}
+
+@mixin playButton {
+  background: $netflixRed;
+  color: #FFF;
+  border: none;
+  padding: .5em 0;
+  text-align: center;
+  transition: background 0.4s, color 0.4s;
+  .fa-play, p { margin: 0 3px; }
+  &:hover {
+    background: #FFF;
+    color: $netflixRed;
   }
 }
