@@ -9,7 +9,7 @@
     width: 100%;
     margin: 0 auto;
     display: block;
-    background: #B9090B;
+    background: #141414;
     text-align: center;
   }
 
@@ -28,18 +28,18 @@
 
   button {
     width: 100%;
-    background: red;
+    background: #B9090B;
     border: none;
     padding: .5em 0;
-    .fa-play {
-      margin: 0 5px;
+    transition: background 0.4s, color 0.4s;
+    .fa-play { margin: 0 5px; }
+    &:hover {
+      background: #FFF;
+      color: #B9090B;
     }
   }
 }
 
-.trailersDisplay {
-  // background: green;
-}
 iframe {
   display: block;
   box-sizing: border-box;

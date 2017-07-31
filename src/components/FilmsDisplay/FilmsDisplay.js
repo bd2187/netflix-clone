@@ -24,7 +24,6 @@ function Movie (movie) {
 }
 
 function FilmsDisplay ({ movies, genreOrQuery }) {
-  if (movies.isFetching) return <p style={{color: "white"}}>Loading</p>;
 
   if (!movies.movies[0]) {
     return <h3>Sorry. No results for {genreOrQuery}</h3>

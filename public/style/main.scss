@@ -1,3 +1,5 @@
+@import "mixins";
+
 * {
   box-sizing: border-box;
 }
@@ -9,6 +11,9 @@ body, html {
 
 body {
   padding-top: 50px;
+  @include mediaQuery(730px) {
+    padding-top: 62px;
+  }
 }
 
 h1, h2, h3, h4, p {

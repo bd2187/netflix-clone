@@ -1,3 +1,5 @@
+// @import "mixins";
+
 .logo {
   width: 75px;
 }
@@ -6,15 +8,18 @@
   margin: 1em 0;
 }
 
+.navbar,
+.dropdown-menu {
+  background: rgba(20, 20, 20, .8);
+}
+
 .navbar {
   margin: 0;
   border: none;
   border-radius: 0;
-  background: rgba(20, 20, 20, .8);
-  .navbar-brand { color: #B9090B; }
   .navbar-collapse {
-    background: rgba(20, 20, 20, .8);
     max-height: none;
+    width: 100%;
   }
 }
 
@@ -39,4 +44,31 @@
     color: #FFF;
     text-decoration: none;
   }
+}
+
+
+// ======
+
+@mixin mediaQuery($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content
+  }
+}
+
+.mobileNavbar {
+  @include mediaQuery(730px) {
+    display: none;
+  }
+}
+
+.desktopNavbar {
+  display: none;
+  .logo { width: 100px; }
+  ul {
+    a {
+      padding-left: .5em;
+      &:hover { text-decoration: underline;}
+    }
+  }
+  @include mediaQuery(730px) { display: block; }
 }

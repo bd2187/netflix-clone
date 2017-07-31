@@ -44,7 +44,6 @@ function convertDate(date) {
 }
 
 function SingleFilm ({isFetching, error, film, trailers}) {
-  if (isFetching) return <p>Loading</p>;
   return (
     <div className="singleFilm">
       {isFetching

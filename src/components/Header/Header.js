@@ -46,6 +46,7 @@ function NavOptions () {
   )
 }
 
+
 class Header extends Component {
   constructor(props){
     super(props);
@@ -54,6 +55,7 @@ class Header extends Component {
     }
 
     this.handleChange = this.handleChange.bind(this);
+    this.resetValue = this.resetValue.bind(this);
   }
   handleChange(e) {
     this.props.history.replace(`/search/q=${e.target.value}`);
@@ -64,32 +66,72 @@ class Header extends Component {
       this.props.history.replace(`/`);
     }
   }
+  resetValue() {
+    this.setState({value: ''})
+  }
   render () {
     return (
-      <Navbar inverse collapseOnSelect fixedTop>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <Link to="/">
-              <img className="logo" src={logo} />
-            </Link>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
+      <div>
+      <div className="mobileNavbar">
+        <Navbar inverse collapseOnSelect fixedTop>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <Link to="/" onClick={this.resetValue}>
+                <img className="logo" src={logo} />
+              </Link>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
 
-        <Navbar.Collapse>
-          <FormGroup>
-            <FormControl
-              type="text"
-              placeholder="Search"
-              value={this.state.value}
-              onChange={this.handleChange}
-            />
-          </FormGroup>
-          <NavOptions />
-          <Nav pullRight>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+          <Navbar.Collapse>
+            <FormGroup>
+              <FormControl
+                type="text"
+                placeholder="Search"
+                value={this.state.value}
+                onChange={this.handleChange}
+              />
+            </FormGroup>
+            <NavOptions />
+            <Nav pullRight>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
+
+
+
+        <div className="desktopNavbar">
+          <Navbar inverse collapseOnSelect fixedTop>
+            <Navbar.Header>
+              <Navbar.Brand>
+                <Link to="/" onClick={this.resetValue}>
+                  <img className="logo" src={logo} />
+                </Link>
+              </Navbar.Brand>
+              <Navbar.Toggle />
+            </Navbar.Header>
+
+            <Navbar.Collapse>
+              <Nav>
+                <NavDropdown eventKey={3} title="Browse" id="basic-nav-dropdown">
+                  <NavOptions />
+                </NavDropdown>
+              </Nav>
+              <Nav pullRight>
+                <FormGroup>
+                  <FormControl
+                    type="text"
+                    placeholder="Search"
+                    value={this.state.value}
+                    onChange={this.handleChange}
+                  />
+                </FormGroup>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+        </div>
+      </div>
     )
   }
 }

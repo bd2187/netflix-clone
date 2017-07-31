@@ -38,3 +38,11 @@
 a:hover {
   text-decoration: none;
 }
+
+.imgReplacement {
+  text-align: center;
+  color: #B9090B;
+  &:hover {
+    color: #FFF;
+  }
+}

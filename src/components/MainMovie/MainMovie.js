@@ -2,14 +2,13 @@ import React from 'react';
 import './MainMovie.scss';
 
 function MainMovie (props) {
-  const { overview, poster, releaseDate, title } = props.movie
-
-  // if (props.isFetching) return <p>Loading</p>;
+  const { overview, poster, releaseDate, title } = props.movie;
 
    const imageUrl = `http://image.tmdb.org/t/p/w1000//${poster}`;
 
    var backgroundImg = {
-     background: `linear-gradient(0deg, #141414, transparent 100%),
+     background: `linear-gradient(180deg, #141414, transparent 50%),
+                  linear-gradient(0deg, #141414, transparent 100%),
                   url(${imageUrl}) no-repeat center/cover`
    };
 

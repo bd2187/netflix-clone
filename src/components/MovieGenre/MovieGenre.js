@@ -24,7 +24,11 @@ class SimpleSlider extends React.Component {
           {this.props.movies.map( (movie) => {
             return (
               <Link to={`/film/${movie.id}`} key={movie.id} className="img-box">
-                <img src={`http://image.tmdb.org/t/p/w300//${movie.poster_path}`}/>
+                {movie.poster_path
+                  ? <img src={`http://image.tmdb.org/t/p/w300//${movie.poster_path}`}/>
+                  : <p className="imgReplacement">{movie.title}</p>
+                }
+
               </Link>
             )
           } )}
