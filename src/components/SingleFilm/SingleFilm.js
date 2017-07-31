@@ -37,10 +37,16 @@ const months = {
   '12': 'December',
 }
 
+function zeroCheck (num) {
+  var numArr = num.split('');
+  return numArr[0] == 0 ? num[1] : num;
+}
+
 function convertDate(date) {
   const dateArr = date.split('-');
   const month = months[dateArr[1]];
-  return `${month} ${dateArr[2]}, ${dateArr[0]}`;
+  const day = zeroCheck(dateArr[2]);
+  return `${month} ${day}, ${dateArr[0]}`;
 }
 
 function SingleFilm ({isFetching, error, film, trailers}) {
