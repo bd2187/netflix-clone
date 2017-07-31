@@ -35,13 +35,17 @@ class SimpleSlider extends React.Component {
 }
 
 function MovieGenre (props) {
-  if (props.isFetching) return <p>Loading</p>;
   return (
     <div className="movieGenre">
-      <Link to={`/genre/${props.genre}`}>
-        <h4>{props.genre}</h4>
-      </Link>
-      <SimpleSlider {...props}/>
+      {props.isFetching
+        ? <div className="spinner"></div>
+        : <div>
+            <Link to={`/genre/${props.genre}`}>
+              <h4>{props.genre}</h4>
+            </Link>
+            <SimpleSlider {...props}/>
+          </div>
+      }
     </div>
   )
 }

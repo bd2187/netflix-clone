@@ -174,10 +174,13 @@ export function fetchSingleFilm (id) {
         });
         dispatch(fetchTrailers(id));
       })
-      .catch( (err) => dispatch({
-        type: 'FETCHING_SINGLE_FILM_FAILURE',
-        error: err
-      }))
+      .catch( (err) => {
+        dispatch({
+          type: 'FETCHING_SINGLE_FILM_FAILURE',
+          error: err
+        });
+        console.log('ERROR', err)
+      })
   }
 }
 
