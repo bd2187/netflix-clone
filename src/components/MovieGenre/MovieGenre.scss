@@ -6,6 +6,8 @@
   h4 {
     color: #FFF;
     margin-bottom: .5em;
+    display: inline-block;
+    &:hover { color: #B9090B; }
   }
   h4, .img-box {
     padding: 0 5px;
@@ -31,4 +33,8 @@
   &:before {
     opacity: .1;
   }
+}
+
+a:hover {
+  text-decoration: none;
 }

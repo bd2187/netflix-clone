@@ -59,6 +59,10 @@ class Header extends Component {
     this.props.history.replace(`/search/q=${e.target.value}`);
     this.props.search(e.target.value);
     this.setState({value: e.target.value});
+
+    if (e.target.value === '') {
+      this.props.history.replace(`/`);
+    }
   }
   render () {
     return (

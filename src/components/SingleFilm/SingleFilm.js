@@ -22,30 +22,6 @@ function TrailersDisplay (props) {
   )
 }
 
-function SingleFilm ({isFetching, error, film, trailers}) {
-  if (isFetching) return <p>Loading</p>;
-  return (
-    <div className="singleFilm">
-      {isFetching
-        ? <div className="spinner"></div>
-        : <div>
-            <img
-              className="imgSpread" src={`http://image.tmdb.org/t/p/w1000//${film.backdrop_path}`}
-              alt={`Poster for ${film.title}`}/>
-            <h1>{film.title}</h1>
-            <button>
-              <i className="fa fa-play" aria-hidden="true"></i>
-              Play
-            </button>
-            <p className="description">{film.overview}</p>
-            <p>{`${film.runtime} min.`}</p>
-            <p>Release Date: {convertDate(film.release_date)}</p>
-            <TrailersDisplay trailers={trailers}/>
-          </div>
-      }
-    </div>
-  )
-}
 const months = {
   '01': 'January',
   '02': 'February',
@@ -65,6 +41,33 @@ function convertDate(date) {
   const dateArr = date.split('-');
   const month = months[dateArr[1]];
   return `${month} ${dateArr[2]}, ${dateArr[0]}`;
+}
+
+function SingleFilm ({isFetching, error, film, trailers}) {
+  if (isFetching) return <p>Loading</p>;
+  return (
+    <div className="singleFilm">
+      {isFetching
+        ? <div className="spinner"></div>
+        : <div>
+            {film.backdrop_path &&
+              <img
+                className="imgSpread" src={`http://image.tmdb.org/t/p/w1000//${film.backdrop_path}`}
+                alt={`Poster for ${film.title}`}/>
+            }
+            <h1>{film.title}</h1>
+            <button>
+              <i className="fa fa-play" aria-hidden="true"></i>
+              Play
+            </button>
+            <p className="description">{film.overview}</p>
+            <p>{`${film.runtime} min.`}</p>
+            <p>Release Date: {convertDate(film.release_date)}</p>
+            <TrailersDisplay trailers={trailers}/>
+          </div>
+      }
+    </div>
+  )
 }
 
 export default SingleFilm;

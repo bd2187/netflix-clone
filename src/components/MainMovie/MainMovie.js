@@ -2,7 +2,6 @@ import React from 'react';
 import './MainMovie.scss';
 
 function MainMovie (props) {
-  console.log(props);
   const { overview, poster, releaseDate, title } = props.movie
 
   // if (props.isFetching) return <p>Loading</p>;

@@ -4,7 +4,6 @@ import './FilmsDisplay.scss';
 
 function Movie (movie) {
   const { id, title, backdrop_path } = movie.movie;
-  console.log(backdrop_path);
   return (
     <Link to={`/film/${id}`}>
       <div className="imgContainer">
@@ -26,6 +25,10 @@ function Movie (movie) {
 
 function FilmsDisplay ({ movies, genreOrQuery }) {
   if (movies.isFetching) return <p style={{color: "white"}}>Loading</p>;
+
+  if (!movies.movies[0]) {
+    return <h3>Sorry. No results for {genreOrQuery}</h3>
+  }
 
   return (
     <div className="genre">
