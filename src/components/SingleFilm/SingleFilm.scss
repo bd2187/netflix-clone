@@ -2,7 +2,6 @@
 @import "../../../public/style/mixins.scss";
 
 .singleFilm {
-  // background: orange;
   color: #FFF;
   margin-top: 2em;
   width: 90%;
@@ -78,11 +77,8 @@ iframe {
   width: 100%;
   max-width: 423px;
   margin: 1em auto;
-  // height: 56.25vh;
   border: none;
-  @include mediaQuery( $firstBreakPoint) {
-    margin: 1em;
-  }
+  @include mediaQuery( $firstBreakPoint) { margin: 1em; }
 }
 
 .mainContent {
