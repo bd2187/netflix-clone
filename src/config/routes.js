@@ -16,6 +16,7 @@ const routes = (
         <Route path="/film/:id" component={SingleFilmContainer} />
         <Route path="/genre/:genre" component={GenreContainer}/>
         <Route path="/search/q=:search" component={SearchContainer}/>
+        <Route render={() => <h1 className="pageNotFound">Sorry, page not found</h1>} />
       </Switch>
     </div>
   </BrowserRouter>

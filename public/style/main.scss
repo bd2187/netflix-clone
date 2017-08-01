@@ -38,6 +38,11 @@ h1, h2, h3, h4 {
   margin: 0 auto;
 }
 
+.pageNotFound {
+  color: $netflixRed;
+  margin-top: 3em;
+}
+
 
 @keyframes spinner {
   to {transform: rotate(360deg);}
