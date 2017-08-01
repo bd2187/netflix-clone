@@ -20,6 +20,13 @@ class ScifiContainer extends Component {
   }
 }
 
+ScifiContainer.propTypes = {
+  error: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  movies: PropTypes.array.isRequired,
+  fetchScifi: PropTypes.func.isRequired,
+}
+
 function mapStateToProps (state) {
   return {
     error: state.scifi.error,

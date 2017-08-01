@@ -20,6 +20,13 @@ class ComediesContainer extends Component {
   }
 }
 
+ComediesContainer.propTypes = {
+  error: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  movies: PropTypes.array.isRequired,
+  fetchComedies: PropTypes.func.isRequired,
+}
+
 function mapStateToProps (state) {
   return {
     error: state.comedies.error,

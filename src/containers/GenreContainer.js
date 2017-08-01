@@ -1,29 +1,42 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as fetchGenreActions from '../actions';
 import Genre from '../components/Genre/Genre';
 
+const genres = {
+  trendingNow: 'Trending Now',
+  actionAdventure: 'Action & Adventure',
+  comedies: 'Comedies',
+  documentaries: 'Documentaries',
+  dramas: 'Dramas',
+  horror: 'Horror',
+  romance: 'Romance',
+  scifi: 'Sci-Fi',
+  thrillers: 'Thrillers'
+}
+
 class GenreContainer extends Component {
   componentDidMount() {
     switch (this.props.match.params.genre) {
-      case 'Trending Now':
+      case genres.trendingNow:
         return this.props.fetchTrending();
-      case 'Action & Adventure':
+      case genres.actionAdventure:
         return this.props.fetchActionAdventure();
-      case 'Comedies':
+      case genres.comedies:
         return this.props.fetchComedies();
-      case 'Documentaries':
+      case genres.documentaries:
         return this.props.fetchDocumentaries();
-      case 'Dramas':
+      case genres.dramas:
         return this.props.fetchDramas();
-      case 'Horror':
+      case genres.horror:
         return this.props.fetchHorror();
-      case 'Romance':
+      case genres.romance:
         return this.props.fetchRomance();
-      case 'Sci-Fi':
+      case genres.scifi:
         return this.props.fetchScifi();
-      case 'Thrillers':
+      case genres.thrillers:
         return this.props.fetchThriller();
       default:
         return null
@@ -34,30 +47,30 @@ class GenreContainer extends Component {
     var movies;
     var genre = this.props.match.params.genre;
     switch (this.props.match.params.genre) {
-      case 'Trending Now':
+      case genres.trendingNow:
         movies = this.props.trending;
         break;
-      case 'Action & Adventure':
+      case genres.actionAdventure:
         movies = this.props.actionAdventure;
-      case 'Comedies':
+      case genres.comedies:
         movies = this.props.comedies;
         break;
-      case 'Documentaries':
+      case genres.documentaries:
         movies = this.props.documentaries;
         break;
-      case 'Dramas':
+      case genres.dramas:
         movies = this.props.dramas;
         break;
-      case 'Horror':
+      case genres.horror:
         movies = this.props.horror;
         break;
-      case 'Romance':
+      case genres.romance:
         movies = this.props.romance;
         break;
-      case 'Sci-Fi':
+      case genres.scifi:
         movies = this.props.scifi;
         break;
-      case 'Thrillers':
+      case genres.thrillers:
         movies = this.props.thriller;
         break;
       default:
@@ -72,6 +85,25 @@ class GenreContainer extends Component {
     )
   }
 
+}
+
+const genreProptype = (
+  PropTypes.shape({
+    error: PropTypes.string.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    movies: PropTypes.array.isRequired
+  }).isRequired
+);
+
+GenreContainer.propTypes = {
+  trending: genreProptype,
+  actionAdventure: genreProptype,
+  comedies: genreProptype,
+  documentaries: genreProptype,
+  dramas: genreProptype,
+  horror: genreProptype,
+  scifi: genreProptype,
+  thriller: genreProptype,
 }
 
 function mapStateToProps (state) {

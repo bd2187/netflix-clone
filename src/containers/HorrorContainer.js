@@ -20,6 +20,13 @@ class HorrorContainer extends Component {
   }
 }
 
+HorrorContainer.propTypes = {
+  error: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  movies: PropTypes.array.isRequired,
+  fetchHorror: PropTypes.func.isRequired,
+}
+
 function mapStateToProps (state) {
   return {
     error: state.horror.error,

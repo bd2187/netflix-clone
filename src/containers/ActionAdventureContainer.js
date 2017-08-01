@@ -20,11 +20,18 @@ class ActionAdventureContainer extends Component {
   }
 }
 
+ActionAdventureContainer.propTypes = {
+  error: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  movies: PropTypes.array.isRequired,
+  fetchActionAdventure: PropTypes.func.isRequired,
+}
+
 function mapStateToProps (state) {
   return {
     error: state.comedies.error,
     isFetching: state.comedies.isFetching,
-    movies: state.comedies.movies
+    movies: state.actionAdventure.movies
   }
 }
 

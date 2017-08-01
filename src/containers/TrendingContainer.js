@@ -20,6 +20,13 @@ class TrendingContainer extends Component {
   }
 }
 
+TrendingContainer.propTypes = {
+  error: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  movies: PropTypes.array.isRequired,
+  fetchTrending: PropTypes.func.isRequired,
+}
+
 function mapStateToProps (state) {
   return {
     error: state.trending.error,

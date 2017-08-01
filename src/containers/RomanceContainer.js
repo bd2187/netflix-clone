@@ -20,6 +20,13 @@ class RomanceContainer extends Component {
   }
 }
 
+RomanceContainer.propTypes = {
+  error: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  movies: PropTypes.array.isRequired,
+  fetchRomance: PropTypes.func.isRequired,
+}
+
 function mapStateToProps (state) {
   return {
     error: state.romance.error,

@@ -20,6 +20,13 @@ class DramasContainer extends Component {
   }
 }
 
+DramasContainer.propTypes = {
+  error: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  movies: PropTypes.array.isRequired,
+  fetchDramas: PropTypes.func.isRequired,
+}
+
 function mapStateToProps (state) {
   return {
     error: state.dramas.error,

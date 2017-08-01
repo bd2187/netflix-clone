@@ -103,7 +103,6 @@ class Header extends Component {
       </div>
 
 
-
         <div className="desktopNavbar">
           <Navbar inverse collapseOnSelect fixedTop>
             <Navbar.Header>

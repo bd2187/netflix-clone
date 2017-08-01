@@ -16,7 +16,6 @@ class SimpleSlider extends React.Component {
       swipe: true,
       swipeToSlide: true
     }
-    // console.log(this.props);
 
     return (
       <div className="slider">
@@ -39,6 +38,13 @@ class SimpleSlider extends React.Component {
   }
 }
 
+SimpleSlider.propTypes = {
+  error: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  movies: PropTypes.array.isRequired
+}
+
 function MovieGenre (props) {
   return (
     <div className="movieGenre contain">
@@ -53,6 +59,13 @@ function MovieGenre (props) {
       }
     </div>
   )
+}
+
+MovieGenre.propTypes = {
+  error: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  movies: PropTypes.array.isRequired
 }
 
 export default MovieGenre;

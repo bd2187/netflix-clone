@@ -17,6 +17,17 @@ class SingleFilmContainer extends Component {
   }
 }
 
+SingleFilmContainer.propTypes = {
+  film: PropTypes.object.isRequired,
+  error: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  trailers: PropTypes.shape({
+    error: PropTypes.string.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    trailersArr: PropTypes.array.isRequired
+  }).isRequired
+}
+
 function mapStateToProps (state) {
   return {
     film: state.singleFilm.film,
