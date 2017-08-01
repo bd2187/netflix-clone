@@ -26,6 +26,23 @@ export function fetchMainMovie () {
   }
 }
 
+export function fetchActionAdventure () {
+  return function (dispatch) {
+    dispatch({type: 'FETCHING_ACTION_ADVENTURE'})
+    axios.get(movieGenreEndpoint(28))
+      .then(function (result) {
+        dispatch({
+          type: 'FETCHING_ACTION_ADVENTURE_SUCCESS',
+          movies: result.data.results
+        })
+      })
+      .catch((err) => dispatch({
+        type: 'FETCHING_ACTION_ADVENTURE_FAILURE',
+        error: err
+      }))
+  }
+}
+
 export function fetchDocumentaries () {
   return function (dispatch) {
     dispatch({type: 'FETCHING_DOCUMENTARIES'})

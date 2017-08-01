@@ -1,6 +1,7 @@
 import React from 'react';
 
 import MainMovieContainer from '../containers/MainMovieContainer';
+import ActionAdventureContainer from '../containers/ActionAdventureContainer';
 import ComediesContainer from '../containers/ComediesContainer';
 import DocumentariesContainer from '../containers/DocumentariesContainer';
 import DramasContainer from '../containers/DramasContainer';
@@ -16,6 +17,7 @@ function Home () {
     <div>
       <MainMovieContainer />
       <TrendingContainer />
+      <ActionAdventureContainer />
       <ComediesContainer />
       <DocumentariesContainer />
       <DramasContainer />

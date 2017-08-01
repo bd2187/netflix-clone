@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import mainMovieReducer from './mainMovieReducer';
+import actionAdventureReducer from './actionAdventureReducer';
 import documentariesReducer from './documentaryReducer';
 import comediesReducer from './comediesReducer';
 import dramasReducer from './dramasReducer';
@@ -13,6 +14,7 @@ import searchReducer from './searchReducer';
 
 const rootReducer = combineReducers({
   mainMovie: mainMovieReducer,
+  actionAdventure: actionAdventureReducer,
   comedies: comediesReducer,
   documentaries: documentariesReducer,
   dramas: dramasReducer,

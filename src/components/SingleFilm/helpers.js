@@ -13,12 +13,13 @@ const months = {
   '12': 'December',
 }
 
-export function zeroCheck (num) {
+export function zeroCheck (num = '') {
   var numArr = num.split('');
   return numArr[0] == 0 ? num[1] : num;
 }
 
 export function convertDate(date) {
+  if (date === '') return 'TBD';
   const dateArr = date.split('-');
   const month = months[dateArr[1]];
   const day = zeroCheck(dateArr[2]);

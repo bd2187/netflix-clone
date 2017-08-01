@@ -9,6 +9,8 @@ class GenreContainer extends Component {
     switch (this.props.match.params.genre) {
       case 'Trending Now':
         return this.props.fetchTrending();
+      case 'Action & Adventure':
+        return this.props.fetchActionAdventure();
       case 'Comedies':
         return this.props.fetchComedies();
       case 'Documentaries':
@@ -35,6 +37,8 @@ class GenreContainer extends Component {
       case 'Trending Now':
         movies = this.props.trending;
         break;
+      case 'Action & Adventure':
+        movies = this.props.actionAdventure;
       case 'Comedies':
         movies = this.props.comedies;
         break;
@@ -73,6 +77,7 @@ class GenreContainer extends Component {
 function mapStateToProps (state) {
   return {
     trending: state.trending,
+    actionAdventure: state.actionAdventure,
     comedies: state.comedies,
     documentaries: state.documentaries,
     dramas: state.dramas,

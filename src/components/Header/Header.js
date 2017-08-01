@@ -20,6 +20,9 @@ function NavOptions () {
         <NavLink exact to="/" activeStyle={{color: netflixRed}}>
           Home
         </NavLink>
+        <NavLink to="/genre/Action & Adventure" activeStyle={{color: netflixRed}}>
+          Action & Adventure
+        </NavLink>
         <NavLink to="/genre/Comedies" activeStyle={{color: netflixRed}}>
           Comedies
         </NavLink>
