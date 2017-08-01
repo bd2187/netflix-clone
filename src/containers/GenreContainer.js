@@ -19,30 +19,16 @@ const genres = {
 
 class GenreContainer extends Component {
   componentDidMount() {
-    switch (this.props.match.params.genre) {
-      case genres.trendingNow:
-        return this.props.fetchTrending();
-      case genres.actionAdventure:
-        return this.props.fetchActionAdventure();
-      case genres.comedies:
-        return this.props.fetchComedies();
-      case genres.documentaries:
-        return this.props.fetchDocumentaries();
-      case genres.dramas:
-        return this.props.fetchDramas();
-      case genres.horror:
-        return this.props.fetchHorror();
-      case genres.romance:
-        return this.props.fetchRomance();
-      case genres.scifi:
-        return this.props.fetchScifi();
-      case genres.thrillers:
-        return this.props.fetchThriller();
-      default:
-        return null
-    }
+    this.props.fetchTrending();
+    this.props.fetchActionAdventure();
+    this.props.fetchComedies();
+    this.props.fetchDocumentaries();
+    this.props.fetchDramas();
+    this.props.fetchHorror();
+    this.props.fetchRomance();
+    this.props.fetchScifi();
+    this.props.fetchThriller();
   }
-
   render() {
     var movies;
     var genre = this.props.match.params.genre;
@@ -52,6 +38,7 @@ class GenreContainer extends Component {
         break;
       case genres.actionAdventure:
         movies = this.props.actionAdventure;
+        break;
       case genres.comedies:
         movies = this.props.comedies;
         break;
@@ -80,6 +67,7 @@ class GenreContainer extends Component {
           movies: []
         };
     }
+
     return (
       <Genre movies={movies} genre={genre}/>
     )

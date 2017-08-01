@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './FilmsDisplay.scss';
 
@@ -43,6 +44,15 @@ function FilmsDisplay ({ movies, genreOrQuery }) {
       </div>
     </div>
   )
+}
+
+FilmsDisplay.propTypes = {
+  movies: PropTypes.shape({
+    isFetching: PropTypes.bool.isRequired,
+    error: PropTypes.string.isRequired,
+    movies: PropTypes.array.isRequired
+  }).isRequired,
+  genreOrQuery: PropTypes.string.isRequired
 }
 
 export default FilmsDisplay;
