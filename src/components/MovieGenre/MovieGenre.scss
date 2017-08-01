@@ -51,3 +51,9 @@ a:hover {
     color: #FFF;
   }
 }
+
+
+.movieGenre,
+.contentBox {
+  max-height: 483px; // added because of firefox
+}
