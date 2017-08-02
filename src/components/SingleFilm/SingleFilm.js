@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ResponsiveEmbed } from 'react-bootstrap';
 import './SingleFilm.scss';
 import { zeroCheck, convertDate } from './helpers';
@@ -24,7 +25,6 @@ function TrailersDisplay (props) {
 }
 
 function SingleFilm ({isFetching, error, film, trailers, history}) {
-  // console.log(history.goBack())
   return (
     <div className="singleFilm contain">
       {isFetching
@@ -42,7 +42,7 @@ function SingleFilm ({isFetching, error, film, trailers, history}) {
                     Play
                   </button>
                   : null
-                }                
+                }
                 <p className="description">{film.overview}</p>
                 { film.runtime !== 0 ? <p>{`${film.runtime} min.`}</p> : null }
                 <p>Release Date: {convertDate(film.release_date)}</p>
@@ -57,6 +57,17 @@ function SingleFilm ({isFetching, error, film, trailers, history}) {
       }
     </div>
   )
+}
+
+SingleFilm.propTypes = {
+  isFetching: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
+  film: PropTypes.object.isRequired,
+  trailers: PropTypes.shape({
+    isFetching: PropTypes.bool.isRequired,
+    error: PropTypes.string.isRequired,
+    trailersArr: PropTypes.array.isRequired
+  })
 }
 
 export default SingleFilm;

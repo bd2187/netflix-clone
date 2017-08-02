@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './MainMovie.scss';
 
 function MainMovie (props) {
@@ -29,6 +30,12 @@ function MainMovie (props) {
         }
       </div>
   );
+}
+
+MainMovie.propTypes = {
+  error: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  movie: PropTypes.object.isRequired
 }
 
 export default MainMovie;

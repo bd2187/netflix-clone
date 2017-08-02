@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   Navbar,
   Nav,
@@ -136,6 +137,10 @@ class Header extends Component {
       </div>
     )
   }
+}
+
+Header.propTypes = {
+  search: PropTypes.func.isRequired
 }
 
 export default Header;
