@@ -29,8 +29,8 @@ ActionAdventureContainer.propTypes = {
 
 function mapStateToProps (state) {
   return {
-    error: state.comedies.error,
-    isFetching: state.comedies.isFetching,
+    error: state.actionAdventure.error,
+    isFetching: state.actionAdventure.isFetching,
     movies: state.actionAdventure.movies
   }
 }

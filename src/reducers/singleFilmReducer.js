@@ -24,7 +24,7 @@ function trailersReducer (state = trailersInitialState, action) {
       return {
         ...state,
         isFetching: false,
-        error: err
+        error: action.error
       }
     default:
       return state;
@@ -55,7 +55,7 @@ function singleFilmReducer (state = singleFilmInitialState, action) {
       return {
         ...state,
         isFetching: false,
-        error: action.err
+        error: action.error
       };
 
     case 'FETCHING_TRAILERS':

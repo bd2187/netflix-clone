@@ -13,6 +13,10 @@ function MainMovie (props) {
                   url(${imageUrl}) no-repeat center/cover`
    };
 
+   if (props.error) {
+     return <h3 className="dataFetchingError">{`Error fetching top movie`}</h3>
+   }
+
   return (
     <div className="mainMovie contain" style={poster ? backgroundImg : null}>
         {props.isFetching

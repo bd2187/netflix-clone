@@ -46,6 +46,7 @@ SimpleSlider.propTypes = {
 }
 
 function MovieGenre (props) {
+  if (props.error) return <h3 className="dataFetchingError">{`Error with fetching movies from ${props.genre}`}</h3>;
   return (
     <div className="movieGenre contain">
       {props.isFetching

@@ -19,7 +19,7 @@ function dramasReducer (state = initialState, action) {
       return {
         ...state,
         isFetching: false,
-        error: action.err
+        error: action.error
       }
     default:
       return state;

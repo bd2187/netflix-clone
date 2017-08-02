@@ -21,7 +21,7 @@ export function fetchMainMovie () {
       })
       .catch( (err) => dispatch({
         type: 'FETCHING_MAIN_MOVIE_FAILURE',
-        error: err
+        error: err.toString()
       }) )
   }
 }
@@ -38,7 +38,7 @@ export function fetchActionAdventure () {
       })
       .catch((err) => dispatch({
         type: 'FETCHING_ACTION_ADVENTURE_FAILURE',
-        error: err
+        error: err.toString()
       }))
   }
 }
@@ -55,7 +55,7 @@ export function fetchDocumentaries () {
       })
       .catch((err) => dispatch({
         type: 'FETCHING_DOCUMENTARIES_FAILURE',
-        error: err
+        error: err.toString()
       }))
   }
 }
@@ -73,7 +73,7 @@ export function fetchComedies () {
       })
       .catch((err) => dispatch({
         type: 'FETCHING_COMEDIES_FAILURE',
-        error: err
+        error: err.toString()
       }))
   }
 }
@@ -90,7 +90,7 @@ export function fetchDramas () {
       })
       .catch((err) => dispatch({
         type: 'FETCHING_DRAMAS_FAILURE',
-        error: err
+        error: err.toString()
       }))
   }
 }
@@ -107,7 +107,7 @@ export function fetchHorror () {
       })
       .catch((err) => dispatch({
         type: 'FETCHING_HORROR_FAILURE',
-        error: err
+        error: err.toString()
       }))
   }
 }
@@ -124,7 +124,7 @@ export function fetchRomance () {
       })
       .catch((err) => dispatch({
         type: 'FETCHING_ROMANCE_FAILURE',
-        error: err
+        error: err.toString()
       }))
   }
 }
@@ -141,7 +141,7 @@ export function fetchScifi () {
       })
       .catch((err) => dispatch({
         type: 'FETCHING_SCIFI_FAILURE',
-        error: err
+        error: err.toString()
       }))
   }
 }
@@ -158,7 +158,7 @@ export function fetchThriller () {
       })
       .catch((err) => dispatch({
         type: 'FETCHING_THRILLER_FAILURE',
-        error: err
+        error: err.toString()
       }))
   }
 }
@@ -175,7 +175,7 @@ export function fetchTrending () {
       })
       .catch((err) => dispatch({
         type: 'FETCHING_TRENDING_FAILURE',
-        error: err
+        error: err.toString()
       }))
   }
 }
@@ -194,9 +194,8 @@ export function fetchSingleFilm (id) {
       .catch( (err) => {
         dispatch({
           type: 'FETCHING_SINGLE_FILM_FAILURE',
-          error: err
+          error: err.toString()
         });
-        console.log('ERROR', err)
       })
   }
 }
@@ -211,6 +210,10 @@ function fetchTrailers(id) {
           trailers: [result.data.results[0], result.data.results[1]]
         })
       })
+      .catch( (err) => dispatch({
+        type: 'FETCHING_TRAILER_FAILURE',
+        error: err.toString()
+      }) )
       // add error handling
   }
 }
@@ -230,7 +233,7 @@ export function searchFilm(query) {
     .catch( (err) => dispatch({
       type: 'FETCHING_SEARCH_FAILURE',
       query,
-      error: err
+      error: err.toString()
     }) )
   }
 }

@@ -5,6 +5,7 @@ import './FilmsDisplay.scss';
 
 function Movie (movie) {
   const { id, title, backdrop_path } = movie.movie;
+  if (movie.error) return <p className="dataFetchingError">Error fetching movie</p>;
   return (
     <Link to={`/film/${id}`}>
       <div className="imgContainer">

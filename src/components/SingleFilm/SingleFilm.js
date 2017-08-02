@@ -6,6 +6,7 @@ import { zeroCheck, convertDate } from './helpers';
 
 function TrailersDisplay (props) {
   const { isFetching, error, trailersArr } = props.trailers;
+  if (error) return <h3 className="dataFetchingError">{error}</h3>
   if (isFetching) return <div className="spinner"></div>;
 
   return (
@@ -25,6 +26,7 @@ function TrailersDisplay (props) {
 }
 
 function SingleFilm ({isFetching, error, film, trailers, history}) {
+  if (error) return <h3 className="dataFetchingError">{error}</h3>
   return (
     <div className="singleFilm contain">
       {isFetching
