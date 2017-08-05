@@ -15,26 +15,28 @@ class SimpleSlider extends React.Component {
       useCSS: true,
       swipe: true,
       swipeToSlide: true
-    }
+    };
 
     return (
       <div className="slider">
         <Slider {...settings}>
-          {this.props.movies.map( (movie) => {
+          {this.props.movies.map(movie => {
             if (!movie.backdrop_path) return null;
             return (
               <Link to={`/film/${movie.id}`} key={movie.id} className="img-box">
                 {movie.poster_path
-                  ? <img src={`http://image.tmdb.org/t/p/w300//${movie.poster_path}`}/>
-                  : <p className="imgReplacement">{movie.title}</p>
-                }
-
+                  ? <img
+                      src={`https://image.tmdb.org/t/p/w300//${movie.poster_path}`}
+                    />
+                  : <p className="imgReplacement">
+                      {movie.title}
+                    </p>}
               </Link>
-            )
-          } )}
+            );
+          })}
         </Slider>
       </div>
-    )
+    );
   }
 }
 
@@ -43,23 +45,27 @@ SimpleSlider.propTypes = {
   genre: PropTypes.string.isRequired,
   isFetching: PropTypes.bool.isRequired,
   movies: PropTypes.array.isRequired
-}
+};
 
-function MovieGenre (props) {
-  if (props.error) return <h3 className="dataFetchingError">{`Error with fetching movies from ${props.genre}`}</h3>;
+function MovieGenre(props) {
+  if (props.error)
+    return (
+      <h3 className="dataFetchingError">{`Error with fetching movies from ${props.genre}`}</h3>
+    );
   return (
     <div className="movieGenre contain">
       {props.isFetching
-        ? <div className="spinner"></div>
+        ? <div className="spinner" />
         : <div className="contentBox">
             <Link to={`/genre/${props.genre}`}>
-              <h4>{props.genre}</h4>
+              <h4>
+                {props.genre}
+              </h4>
             </Link>
-            <SimpleSlider {...props}/>
-          </div>
-      }
+            <SimpleSlider {...props} />
+          </div>}
     </div>
-  )
+  );
 }
 
 MovieGenre.propTypes = {
@@ -67,6 +73,6 @@ MovieGenre.propTypes = {
   genre: PropTypes.string.isRequired,
   isFetching: PropTypes.bool.isRequired,
   movies: PropTypes.array.isRequired
-}
+};
 
 export default MovieGenre;

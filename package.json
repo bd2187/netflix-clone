@@ -11,7 +11,10 @@
     ]
   },
   "scripts": {
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "build": "NODE_ENV='production' webpack -p",
+    "deploy": "npm run build && firebase deploy",
+    "firebase-init": "firebase login && firebase init"
   },
   "author": "Brandon Dionisio",
   "license": "ISC",
@@ -23,6 +26,7 @@
     "babel-preset-stage-1": "^6.24.1",
     "css-loader": "^0.28.4",
     "file-loader": "^0.11.2",
+    "firebase-tools": "^3.9.1",
     "html-webpack-plugin": "^2.29.0",
     "node-sass": "^4.5.3",
     "prop-types": "^15.5.10",
