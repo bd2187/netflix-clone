@@ -199,23 +199,22 @@ export function fetchThriller() {
 }
 
 export function fetchSingleFilm(id) {
-  return function(dispatch) {
+  return async function(dispatch) {
     dispatch({ type: 'FETCHING_SINGLE_FILM' });
-    axios
-      .get(movieDetailsEndpoint(id))
-      .then(function(result) {
-        dispatch({
-          type: 'FETCHING_SINGLE_FILM_SUCCESS',
-          film: result.data
-        });
-        dispatch(fetchTrailers(id));
-      })
-      .catch(err => {
-        dispatch({
-          type: 'FETCHING_SINGLE_FILM_FAILURE',
-          error: err.toString()
-        });
+    try {
+      const response = await fetch(movieDetailsEndpoint(id));
+      var data = await response.json();
+      dispatch({
+        type: 'FETCHING_SINGLE_FILM_SUCCESS',
+        film: data
       });
+      dispatch(fetchTrailers(id));
+    } catch (err) {
+      dispatch({
+        type: 'FETCHING_SINGLE_FILM_FAILURE',
+        error: err.toString()
+      });
+    }
   };
 }
 
@@ -236,7 +235,6 @@ function fetchTrailers(id) {
           error: err.toString()
         })
       );
-    // add error handling
   };
 }
 
