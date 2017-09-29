@@ -27,204 +27,174 @@ export function fetchMainMovie() {
   };
 }
 
-// export function fetchMainMovie() {
-//   return function(dispatch) {
-//     dispatch({ type: 'FETCHING_MOVIE' });
-//     axios
-//       .get(mainMovieEndpoint)
-//       .then(function(result) {
-//         const numberOneTrending = result.data.results[0];
-//         dispatch({
-//           type: 'FETCHING_MAIN_MOVIE_SUCCESS',
-//           movie: numberOneTrending
-//         });
-//       })
-//       .catch(err =>
-//         dispatch({
-//           type: 'FETCHING_MAIN_MOVIE_FAILURE',
-//           error: err.toString()
-//         })
-//       );
-//   };
-// }
-
-export function fetchActionAdventure() {
-  return function(dispatch) {
-    dispatch({ type: 'FETCHING_ACTION_ADVENTURE' });
-    axios
-      .get(movieGenreEndpoint(28))
-      .then(function(result) {
-        dispatch({
-          type: 'FETCHING_ACTION_ADVENTURE_SUCCESS',
-          movies: result.data.results
-        });
-      })
-      .catch(err =>
-        dispatch({
-          type: 'FETCHING_ACTION_ADVENTURE_FAILURE',
-          error: err.toString()
-        })
-      );
+export function fetchTrending() {
+  return async function(dispatch) {
+    dispatch({ type: 'FETCHING_TRENDING' });
+    try {
+      const response = await fetch(trendingMoviesEndpoint);
+      const data = await response.json();
+      dispatch({
+        type: 'FETCHING_TRENDING_SUCCESS',
+        movies: data.results
+      });
+    } catch (err) {
+      dispatch({
+        type: 'FETCHING_TRENDING_FAILURE',
+        error: err.toString()
+      });
+    }
   };
 }
 
-export function fetchDocumentaries() {
-  return function(dispatch) {
-    dispatch({ type: 'FETCHING_DOCUMENTARIES' });
-    axios
-      .get(movieGenreEndpoint(99))
-      .then(function(result) {
-        dispatch({
-          type: 'FETCHING_DOCUMENTARIES_SUCCESS',
-          movies: result.data.results
-        });
-      })
-      .catch(err =>
-        dispatch({
-          type: 'FETCHING_DOCUMENTARIES_FAILURE',
-          error: err.toString()
-        })
-      );
+export function fetchActionAdventure() {
+  return async function(dispatch) {
+    dispatch({ type: 'FETCHING_ACTION_ADVENTURE' });
+    try {
+      const response = await fetch(movieGenreEndpoint(28));
+      const data = await response.json();
+      dispatch({
+        type: 'FETCHING_ACTION_ADVENTURE_SUCCESS',
+        movies: data.results
+      });
+    } catch (err) {
+      dispatch({
+        type: 'FETCHING_ACTION_ADVENTURE_FAILURE',
+        error: err.toString()
+      });
+    }
   };
 }
 
 export function fetchComedies() {
-  return function(dispatch) {
+  return async function(dispatch) {
     dispatch({ type: 'FETCHING_COMEDIES' });
-    axios
-      .get(movieGenreEndpoint(35))
-      .then(function(result) {
-        dispatch({
-          type: 'FETCHING_COMEDIES_SUCCESS',
-          movies: result.data.results
-        });
-      })
-      .catch(err =>
-        dispatch({
-          type: 'FETCHING_COMEDIES_FAILURE',
-          error: err.toString()
-        })
-      );
+    try {
+      const response = await fetch(movieGenreEndpoint(35));
+      const data = await response.json();
+      dispatch({
+        type: 'FETCHING_COMEDIES_SUCCESS',
+        movies: data.results
+      });
+    } catch (err) {
+      dispatch({
+        type: 'FETCHING_COMEDIES_FAILURE',
+        error: err.toString()
+      });
+    }
+  };
+}
+
+export function fetchDocumentaries() {
+  return async function(dispatch) {
+    dispatch({ type: 'FETCHING_DOCUMENTARIES' });
+    try {
+      const response = await fetch(movieGenreEndpoint(99));
+      const data = await response.json();
+      dispatch({
+        type: 'FETCHING_DOCUMENTARIES_SUCCESS',
+        movies: data.results
+      });
+    } catch (err) {
+      dispatch({
+        type: 'FETCHING_DOCUMENTARIES_FAILURE',
+        error: err.toString()
+      });
+    }
   };
 }
 
 export function fetchDramas() {
-  return function(dispatch) {
+  return async function(dispatch) {
     dispatch({ type: 'FETCHING_DRAMAS' });
-    axios
-      .get(movieGenreEndpoint(18))
-      .then(function(result) {
-        dispatch({
-          type: 'FETCHING_DRAMAS_SUCCESS',
-          movies: result.data.results
-        });
-      })
-      .catch(err =>
-        dispatch({
-          type: 'FETCHING_DRAMAS_FAILURE',
-          error: err.toString()
-        })
-      );
+    try {
+      const response = await fetch(movieGenreEndpoint(18));
+      const data = await response.json();
+      dispatch({
+        type: 'FETCHING_DRAMAS_SUCCESS',
+        movies: data.results
+      });
+    } catch (err) {
+      dispatch({
+        type: 'FETCHING_DRAMAS_FAILURE',
+        error: err.toString()
+      });
+    }
   };
 }
 
 export function fetchHorror() {
-  return function(dispatch) {
+  return async function(dispatch) {
     dispatch({ type: 'FETCHING_HORROR' });
-    axios
-      .get(movieGenreEndpoint(27))
-      .then(function(result) {
-        dispatch({
-          type: 'FETCHING_HORROR_SUCCESS',
-          movies: result.data.results
-        });
-      })
-      .catch(err =>
-        dispatch({
-          type: 'FETCHING_HORROR_FAILURE',
-          error: err.toString()
-        })
-      );
+    try {
+      const response = await fetch(movieGenreEndpoint(27));
+      const data = await response.json();
+      dispatch({
+        type: 'FETCHING_HORROR_SUCCESS',
+        movies: data.results
+      });
+    } catch (err) {
+      dispatch({
+        type: 'FETCHING_HORROR_FAILURE',
+        error: err.toString()
+      });
+    }
   };
 }
 
 export function fetchRomance() {
-  return function(dispatch) {
+  return async function(dispatch) {
     dispatch({ type: 'FETCHING_ROMANCE' });
-    axios
-      .get(movieGenreEndpoint(10749))
-      .then(function(result) {
-        dispatch({
-          type: 'FETCHING_ROMANCE_SUCCESS',
-          movies: result.data.results
-        });
-      })
-      .catch(err =>
-        dispatch({
-          type: 'FETCHING_ROMANCE_FAILURE',
-          error: err.toString()
-        })
-      );
+    try {
+      const response = await fetch(movieGenreEndpoint(10749));
+      const data = await response.json();
+      dispatch({
+        type: 'FETCHING_ROMANCE_SUCCESS',
+        movies: data.results
+      });
+    } catch (err) {
+      dispatch({
+        type: 'FETCHING_ROMANCE_FAILURE',
+        error: err.toString()
+      });
+    }
   };
 }
 
 export function fetchScifi() {
-  return function(dispatch) {
+  return async function(dispatch) {
     dispatch({ type: 'FETCHING_SCIFI' });
-    axios
-      .get(movieGenreEndpoint(878))
-      .then(function(result) {
-        dispatch({
-          type: 'FETCHING_SCIFI_SUCCESS',
-          movies: result.data.results
-        });
-      })
-      .catch(err =>
-        dispatch({
-          type: 'FETCHING_SCIFI_FAILURE',
-          error: err.toString()
-        })
-      );
+    try {
+      const response = await fetch(movieGenreEndpoint(878));
+      const data = await response.json();
+      dispatch({
+        type: 'FETCHING_SCIFI_SUCCESS',
+        movies: data.results
+      });
+    } catch (err) {
+      dispatch({
+        type: 'FETCHING_SCIFI_FAILURE',
+        error: err.toString()
+      });
+    }
   };
 }
 
 export function fetchThriller() {
-  return function(dispatch) {
+  return async function(dispatch) {
     dispatch({ type: 'FETCHING_THRILLER' });
-    axios
-      .get(movieGenreEndpoint(53))
-      .then(function(result) {
-        dispatch({
-          type: 'FETCHING_THRILLER_SUCCESS',
-          movies: result.data.results
-        });
-      })
-      .catch(err =>
-        dispatch({
-          type: 'FETCHING_THRILLER_FAILURE',
-          error: err.toString()
-        })
-      );
-  };
-}
-
-export function fetchTrending() {
-  return function(dispatch) {
-    dispatch({ type: 'FETCHING_TRENDING' });
-    axios
-      .get(trendingMoviesEndpoint)
-      .then(function(result) {
-        dispatch({
-          type: 'FETCHING_TRENDING_SUCCESS',
-          movies: result.data.results
-        });
-      })
-      .catch(err =>
-        dispatch({
-          type: 'FETCHING_TRENDING_FAILURE',
-          error: err.toString()
-        })
-      );
+    try {
+      const response = await fetch(movieGenreEndpoint(53));
+      const data = await response.json();
+      dispatch({
+        type: 'FETCHING_THRILLER_SUCCESS',
+        movies: data.results
+      });
+    } catch (err) {
+      dispatch({
+        type: 'FETCHING_THRILLER_FAILURE',
+        error: err.toString()
+      });
+    }
   };
 }
 
