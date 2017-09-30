@@ -8,6 +8,35 @@ import {
   searchEndpoint
 } from '../config/endpoints';
 
+// =========== Create reusable action creator for fetching genres
+export function fetchGenre(
+  fetchingConstant,
+  successConstant,
+  failureConstant,
+  id
+) {
+  return async function(dispatch) {
+    dispatch({ type: fetchingConstant });
+    try {
+      const response = await fetch(movieGenreEndpoint(id));
+      const data = await response.json();
+      dispatch({
+        type: successConstant,
+        movies: data.results
+      });
+    } catch (err) {
+      dispatch({
+        type: failureConstant,
+        error: err.toString()
+      });
+    }
+  };
+}
+
+// fetchGenre
+
+// ===========
+
 export function fetchMainMovie() {
   return async function(dispatch) {
     dispatch({ type: 'FETCHING_MOVIE' });
