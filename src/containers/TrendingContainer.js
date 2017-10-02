@@ -12,10 +12,11 @@ class TrendingContainer extends Component {
   render() {
     return (
       <MovieGenre
-        genre={"Trending Now"}
-        isFetching = {this.props.isFetching}
-        error = {this.props.error}
-        movies = {this.props.movies}/>
+        genre={'Trending Now'}
+        isFetching={this.props.isFetching}
+        error={this.props.error}
+        movies={this.props.movies}
+      />
     );
   }
 }
@@ -24,22 +25,19 @@ TrendingContainer.propTypes = {
   error: PropTypes.string.isRequired,
   isFetching: PropTypes.bool.isRequired,
   movies: PropTypes.array.isRequired,
-  fetchTrending: PropTypes.func.isRequired,
-}
+  fetchTrending: PropTypes.func.isRequired
+};
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     error: state.trending.error,
     isFetching: state.trending.isFetching,
     movies: state.trending.movies
-  }
+  };
 }
 
-function mapDispatchToProps (dispatch) {
-  return bindActionCreators({fetchTrending}, dispatch);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchTrending }, dispatch);
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TrendingContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(TrendingContainer);
