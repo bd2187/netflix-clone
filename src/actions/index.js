@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {
   mainMovieEndpoint,
   movieGenreEndpoint,
@@ -7,6 +6,8 @@ import {
   trailersEndpoint,
   searchEndpoint
 } from '../config/endpoints';
+
+// Todo: import constants and replace strings with them
 
 export function fetchGenre(
   fetchingConstant,
@@ -91,43 +92,43 @@ export function fetchSingleFilm(id) {
 }
 
 function fetchTrailers(id) {
-  return function(dispatch) {
+  return async function(dispatch) {
     dispatch({ type: 'FETCHING_TRAILERS' });
-    axios
-      .get(trailersEndpoint(id))
-      .then(function(result) {
-        dispatch({
-          type: 'FETCHING_TRAILERS_SUCCESS',
-          trailers: [result.data.results[0], result.data.results[1]]
-        });
-      })
-      .catch(err =>
-        dispatch({
-          type: 'FETCHING_TRAILER_FAILURE',
-          error: err.toString()
-        })
-      );
+
+    try {
+      const response = await fetch(trailersEndpoint(id));
+      const data = await response.json();
+      dispatch({
+        type: 'FETCHING_TRAILERS_SUCCESS',
+        trailers: [data.results[0], data.results[1]]
+      });
+    } catch (err) {
+      dispatch({
+        type: 'FETCHING_TRAILER_FAILURE',
+        error: err.toString()
+      });
+    }
   };
 }
 
 export function searchFilm(query) {
-  return function(dispatch) {
+  return async function(dispatch) {
     dispatch({ type: 'FETCHING_SEARCH', query });
-    axios
-      .get(searchEndpoint(query))
-      .then(function(results) {
-        dispatch({
-          type: 'FETCHING_SEARCH_SUCCESS',
-          query,
-          movies: results.data.results
-        });
-      })
-      .catch(err =>
-        dispatch({
-          type: 'FETCHING_SEARCH_FAILURE',
-          query,
-          error: err.toString()
-        })
-      );
+
+    try {
+      const response = await fetch(searchEndpoint(query));
+      const data = await response.json();
+      dispatch({
+        type: 'FETCHING_SEARCH_SUCCESS',
+        query,
+        movies: data.results
+      });
+    } catch (err) {
+      dispatch({
+        type: 'FETCHING_SEARCH_FAILURE',
+        query,
+        error: err.toString()
+      });
+    }
   };
 }
