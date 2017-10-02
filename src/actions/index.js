@@ -13,12 +13,12 @@ export function fetchGenre(
   fetchingConstant,
   successConstant,
   failureConstant,
-  id
+  genreId
 ) {
   return async function(dispatch) {
     dispatch({ type: fetchingConstant });
     try {
-      const response = await fetch(movieGenreEndpoint(id));
+      const response = await fetch(movieGenreEndpoint(genreId));
       const data = await response.json();
       dispatch({
         type: successConstant,

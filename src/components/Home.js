@@ -5,15 +5,9 @@ import MovieGenre from './MovieGenre/MovieGenre';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchActionAdventure } from '../actions';
-import { fetchComedies } from '../actions';
-import { fetchDocumentaries } from '../actions';
-import { fetchDramas } from '../actions';
-import { fetchHorror } from '../actions';
-import { fetchRomance } from '../actions';
-import { fetchScifi } from '../actions';
-import { fetchThriller } from '../actions';
 import { fetchTrending } from '../actions';
+import { fetchGenre } from '../actions';
+import * as constants from '../constants';
 
 class Home extends Component {
   constructor(props) {
@@ -22,14 +16,54 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.fetchTrending();
-    this.props.fetchActionAdventure();
-    this.props.fetchComedies();
-    this.props.fetchDocumentaries();
-    this.props.fetchDramas();
-    this.props.fetchHorror();
-    this.props.fetchRomance();
-    this.props.fetchScifi();
-    this.props.fetchThriller();
+    this.props.fetchGenre(
+      constants.FETCHING_ACTION_ADVENTURE,
+      constants.FETCHING_ACTION_ADVENTURE_SUCCESS,
+      constants.FETCHING_ACTION_ADVENTURE_FAILURE,
+      28
+    );
+    this.props.fetchGenre(
+      constants.FETCHING_COMEDIES,
+      constants.FETCHING_COMEDIES_SUCCESS,
+      constants.FETCHING_COMEDIES_FAILURE,
+      35
+    );
+    this.props.fetchGenre(
+      constants.FETCHING_DOCUMENTARIES,
+      constants.FETCHING_DOCUMENTARIES_SUCCESS,
+      constants.FETCHING_DOCUMENTARIES_FAILURE,
+      99
+    );
+    this.props.fetchGenre(
+      constants.FETCHING_DRAMAS,
+      constants.FETCHING_DRAMAS_SUCCESS,
+      constants.FETCHING_DRAMAS_FAILURE,
+      18
+    );
+    this.props.fetchGenre(
+      constants.FETCHING_HORROR,
+      constants.FETCHING_HORROR_SUCCESS,
+      constants.FETCHING_HORROR_FAILURE,
+      27
+    );
+    this.props.fetchGenre(
+      constants.FETCHING_ROMANCE,
+      constants.FETCHING_ROMANCE_SUCCESS,
+      constants.FETCHING_ROMANCE_FAILURE,
+      10749
+    );
+    this.props.fetchGenre(
+      constants.FETCHING_SCIFI,
+      constants.FETCHING_SCIFI_SUCCESS,
+      constants.FETCHING_SCIFI_FAILURE,
+      878
+    );
+    this.props.fetchGenre(
+      constants.FETCHING_THRILLER,
+      constants.FETCHING_THRILLER_SUCCESS,
+      constants.FETCHING_THRILLER_FAILURE,
+      53
+    );
   }
 
   render() {
@@ -124,15 +158,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      fetchActionAdventure,
-      fetchComedies,
-      fetchDocumentaries,
-      fetchDramas,
-      fetchHorror,
-      fetchRomance,
-      fetchScifi,
-      fetchThriller,
-      fetchTrending
+      fetchTrending,
+      fetchGenre
     },
     dispatch
   );
