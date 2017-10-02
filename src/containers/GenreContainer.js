@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as fetchGenreActions from '../actions';
+import { fetchGenre, fetchTrending } from '../actions';
+import * as constants from '../constants';
 import Genre from '../components/Genre/Genre';
 
 const genres = {
@@ -15,19 +16,59 @@ const genres = {
   romance: 'Romance',
   scifi: 'Sci-Fi',
   thrillers: 'Thrillers'
-}
+};
 
 class GenreContainer extends Component {
   componentDidMount() {
     this.props.fetchTrending();
-    this.props.fetchActionAdventure();
-    this.props.fetchComedies();
-    this.props.fetchDocumentaries();
-    this.props.fetchDramas();
-    this.props.fetchHorror();
-    this.props.fetchRomance();
-    this.props.fetchScifi();
-    this.props.fetchThriller();
+    this.props.fetchGenre(
+      constants.FETCHING_ACTION_ADVENTURE,
+      constants.FETCHING_ACTION_ADVENTURE_SUCCESS,
+      constants.FETCHING_ACTION_ADVENTURE_FAILURE,
+      28
+    );
+    this.props.fetchGenre(
+      constants.FETCHING_COMEDIES,
+      constants.FETCHING_COMEDIES_SUCCESS,
+      constants.FETCHING_COMEDIES_FAILURE,
+      35
+    );
+    this.props.fetchGenre(
+      constants.FETCHING_DOCUMENTARIES,
+      constants.FETCHING_DOCUMENTARIES_SUCCESS,
+      constants.FETCHING_DOCUMENTARIES_FAILURE,
+      99
+    );
+    this.props.fetchGenre(
+      constants.FETCHING_DRAMAS,
+      constants.FETCHING_DRAMAS_SUCCESS,
+      constants.FETCHING_DRAMAS_FAILURE,
+      18
+    );
+    this.props.fetchGenre(
+      constants.FETCHING_HORROR,
+      constants.FETCHING_HORROR_SUCCESS,
+      constants.FETCHING_HORROR_FAILURE,
+      27
+    );
+    this.props.fetchGenre(
+      constants.FETCHING_ROMANCE,
+      constants.FETCHING_ROMANCE_SUCCESS,
+      constants.FETCHING_ROMANCE_FAILURE,
+      10749
+    );
+    this.props.fetchGenre(
+      constants.FETCHING_SCIFI,
+      constants.FETCHING_SCIFI_SUCCESS,
+      constants.FETCHING_SCIFI_FAILURE,
+      878
+    );
+    this.props.fetchGenre(
+      constants.FETCHING_THRILLER,
+      constants.FETCHING_THRILLER_SUCCESS,
+      constants.FETCHING_THRILLER_FAILURE,
+      53
+    );
   }
   render() {
     var movies;
@@ -68,20 +109,15 @@ class GenreContainer extends Component {
         };
     }
 
-    return (
-      <Genre movies={movies} genre={genre}/>
-    )
+    return <Genre movies={movies} genre={genre} />;
   }
-
 }
 
-const genreProptype = (
-  PropTypes.shape({
-    error: PropTypes.string.isRequired,
-    isFetching: PropTypes.bool.isRequired,
-    movies: PropTypes.array.isRequired
-  }).isRequired
-);
+const genreProptype = PropTypes.shape({
+  error: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  movies: PropTypes.array.isRequired
+}).isRequired;
 
 GenreContainer.propTypes = {
   trending: genreProptype,
@@ -91,10 +127,10 @@ GenreContainer.propTypes = {
   dramas: genreProptype,
   horror: genreProptype,
   scifi: genreProptype,
-  thriller: genreProptype,
-}
+  thriller: genreProptype
+};
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     trending: state.trending,
     actionAdventure: state.actionAdventure,
@@ -105,16 +141,11 @@ function mapStateToProps (state) {
     romance: state.romance,
     scifi: state.scifi,
     thriller: state.thriller
-  }
+  };
 }
 
-function mapDispatchToProps (dispatch) {
-  return bindActionCreators(fetchGenreActions, dispatch);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchTrending, fetchGenre }, dispatch);
 }
 
-
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(GenreContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(GenreContainer);

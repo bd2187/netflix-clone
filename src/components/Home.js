@@ -5,8 +5,7 @@ import MovieGenre from './MovieGenre/MovieGenre';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchTrending } from '../actions';
-import { fetchGenre } from '../actions';
+import { fetchTrending, fetchGenre } from '../actions';
 import * as constants from '../constants';
 
 class Home extends Component {
