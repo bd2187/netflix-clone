@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Home from '../components/Home';
+import HomeContainer from '../containers/HomeContainer';
 import HeaderContainer from '../containers/HeaderContainer';
 import SingleFilmContainer from '../containers/SingleFilmContainer';
 import GenreContainer from '../containers/GenreContainer';
@@ -12,11 +12,13 @@ const routes = (
     <div>
       <Route to="/" component={HeaderContainer} />
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={HomeContainer} />
         <Route path="/film/:id" component={SingleFilmContainer} />
-        <Route path="/genre/:genre" component={GenreContainer}/>
-        <Route path="/search/q=:search" component={SearchContainer}/>
-        <Route render={() => <h1 className="pageNotFound">Sorry, page not found</h1>} />
+        <Route path="/genre/:genre" component={GenreContainer} />
+        <Route path="/search/q=:search" component={SearchContainer} />
+        <Route
+          render={() => <h1 className="pageNotFound">Sorry, page not found</h1>}
+        />
       </Switch>
     </div>
   </BrowserRouter>

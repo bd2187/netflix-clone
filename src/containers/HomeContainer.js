@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-import MainMovieContainer from '../containers/MainMovieContainer';
-import MovieGenre from './MovieGenre/MovieGenre';
+import MainMovieContainer from './MainMovieContainer';
+import MovieGenre from '../components/MovieGenre/MovieGenre';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchTrending, fetchGenre } from '../actions';
 import * as constants from '../constants';
 
-class Home extends Component {
+class HomeContainer extends Component {
   constructor(props) {
     super(props);
   }
@@ -164,4 +164,4 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
