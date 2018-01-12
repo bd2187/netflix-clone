@@ -1,26 +1,32 @@
+import {
+  FETCHING_COMEDIES,
+  FETCHING_COMEDIES_SUCCESS,
+  FETCHING_COMEDIES_FAILURE
+} from '../constants';
+
 const initialState = {
   isFetching: true,
   error: '',
   movies: []
-}
+};
 
-function comediesReducer (state = initialState, action) {
+function comediesReducer(state = initialState, action) {
   switch (action.type) {
-    case 'FETCHING_COMEDIES':
-      return {...state, isFetching: true};
-    case 'FETCHING_COMEDIES_SUCCESS':
+    case FETCHING_COMEDIES:
+      return { ...state, isFetching: true };
+    case FETCHING_COMEDIES_SUCCESS:
       return {
         ...state,
         isFetching: false,
-         error: '',
+        error: '',
         movies: action.movies
-      }
-    case 'FETCHING_COMEDIES_FAILURE':
+      };
+    case FETCHING_COMEDIES_FAILURE:
       return {
         ...state,
         isFetching: false,
         error: action.error
-      }
+      };
     default:
       return state;
   }

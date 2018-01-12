@@ -1,26 +1,32 @@
+import {
+  FETCHING_DOCUMENTAIRES,
+  FETCHING_DOCUMENTARIES_SUCCESS,
+  FETCHING_DOCUMENTARIES_FAILURE
+} from '../constants';
+
 const initialState = {
   isFetching: true,
   error: '',
   movies: []
-}
+};
 
-function documentariesReducer (state = initialState, action) {
+function documentariesReducer(state = initialState, action) {
   switch (action.type) {
-    case 'FETCHING_DOCUMENTAIRES':
-      return {...state, isFetching: true};
-    case 'FETCHING_DOCUMENTARIES_SUCCESS':
+    case FETCHING_DOCUMENTAIRES:
+      return { ...state, isFetching: true };
+    case FETCHING_DOCUMENTARIES_SUCCESS:
       return {
         ...state,
         isFetching: false,
         error: '',
         movies: action.movies
-      }
-    case 'FETCHING_DOCUMENTARIES_FAILURE':
+      };
+    case FETCHING_DOCUMENTARIES_FAILURE:
       return {
         ...state,
         isFetching: false,
         error: action.error
-      }
+      };
     default:
       return state;
   }
