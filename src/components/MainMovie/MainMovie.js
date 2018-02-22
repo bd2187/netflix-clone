@@ -5,7 +5,7 @@ import './MainMovie.scss';
 function MainMovie(props) {
   const { overview, poster, releaseDate, title } = props.movie;
 
-  const imageUrl = `https://image.tmdb.org/t/p/w1000//${poster}`;
+  const imageUrl = `https://image.tmdb.org/t/p/w780//${poster}`;
 
   var backgroundImg = {
     background: `linear-gradient(180deg, #141414, transparent 50%),

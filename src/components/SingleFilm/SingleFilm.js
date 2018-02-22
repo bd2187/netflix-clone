@@ -49,7 +49,7 @@ function SingleFilm({ isFetching, error, film, trailers, history }) {
             <div className="mainContent">
               <img
                 className="imgSpread"
-                src={`https://image.tmdb.org/t/p/w1000//${film.backdrop_path}`}
+                src={`https://image.tmdb.org/t/p/w780//${film.backdrop_path}`}
                 alt={`Poster for ${film.title}`}
               />
               <div className="movieInfo">
